@@ -1,4 +1,4 @@
-package com.example.agrosmart.ui.gallery;
+package com.example.agrosmart.DrawerMenu.Connections;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.agrosmart.R;
 
-public class GalleryFragment extends Fragment {
+public class ConnectionsFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private ConnectionsViewModel connectionsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        connectionsViewModel =
+                new ViewModelProvider(this).get(ConnectionsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_connections, container, false);
+        final TextView textView = root.findViewById(R.id.text_home);
+        connectionsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

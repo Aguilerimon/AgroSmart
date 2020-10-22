@@ -7,19 +7,59 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.agrosmart.ui.home.HomeFragment"
+        android:name="com.example.agrosmart.DrawerMenu.Home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_notifications"
+            app:destination="@id/nav_notifications" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.agrosmart.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_notifications"
+        android:name="com.example.agrosmart.DrawerMenu.Notifications.NotificationsFragment"
+        android:label="@string/menu_notifications"
+        tools:layout="@layout/fragment_notifications" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.agrosmart.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_sensors"
+        android:name="com.example.agrosmart.DrawerMenu.Sensors.SensorsFragment"
+        android:label="@string/menu_sensors"
+        tools:layout="@layout/fragment_sensors" />
+
+    <fragment
+        android:id="@+id/nav_connections"
+        android:name="com.example.agrosmart.DrawerMenu.Connections.ConnectionsFragment"
+        android:label="@string/menu_connections"
+        tools:layout="@layout/fragment_connections" />
+
+    <fragment
+        android:id="@+id/nav_specs"
+        android:name="com.example.agrosmart.DrawerMenu.Specs.SpecsFragment"
+        android:label="@string/menu_specs"
+        tools:layout="@layout/fragment_specs" />
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.example.agrosmart.DrawerMenu.Account.AccountFragment"
+        android:label="@string/menu_account"
+        tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.agrosmart.DrawerMenu.Settings.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_policy"
+        android:name="com.example.agrosmart.DrawerMenu.Policy.PolicyFragment"
+        android:label="@string/menu_policy"
+        tools:layout="@layout/fragment_policy" />
+
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.example.agrosmart.DrawerMenu.Contact.ContactFragment"
+        android:label="@string/menu_contact"
+        tools:layout="@layout/fragment_contact" />
 </navigation>

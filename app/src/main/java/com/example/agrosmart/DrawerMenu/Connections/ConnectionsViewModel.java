@@ -1,16 +1,16 @@
-package com.example.agrosmart.ui.home;
+package com.example.agrosmart.DrawerMenu.Connections;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class ConnectionsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public ConnectionsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is Connections fragment");
     }
 
     public LiveData<String> getText() {
