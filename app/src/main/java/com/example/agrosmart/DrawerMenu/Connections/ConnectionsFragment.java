@@ -23,7 +23,7 @@ public class ConnectionsFragment extends Fragment {
         connectionsViewModel =
                 new ViewModelProvider(this).get(ConnectionsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_connections, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
+        final TextView textView = root.findViewById(R.id.text_connections);
         connectionsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

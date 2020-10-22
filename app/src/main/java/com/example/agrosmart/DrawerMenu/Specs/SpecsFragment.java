@@ -23,7 +23,7 @@ public class SpecsFragment extends Fragment {
         specsViewModel =
                 new ViewModelProvider(this).get(SpecsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_specs, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
+        final TextView textView = root.findViewById(R.id.text_specs);
         specsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

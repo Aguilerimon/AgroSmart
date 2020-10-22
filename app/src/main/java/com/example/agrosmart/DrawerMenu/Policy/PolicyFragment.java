@@ -23,7 +23,7 @@ public class PolicyFragment extends Fragment {
         policyViewModel =
                 new ViewModelProvider(this).get(PolicyViewModel.class);
         View root = inflater.inflate(R.layout.fragment_policy, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
+        final TextView textView = root.findViewById(R.id.text_policy);
         policyViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
