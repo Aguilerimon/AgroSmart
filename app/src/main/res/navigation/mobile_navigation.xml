@@ -10,9 +10,7 @@
         android:name="com.example.agrosmart.DrawerMenu.Home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_nav_home_to_nav_notifications"
-            app:destination="@id/nav_notifications" />
+        
     </fragment>
 
     <fragment
