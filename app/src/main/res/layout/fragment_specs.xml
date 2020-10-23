@@ -6,6 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".DrawerMenu.Specs.SpecsFragment">
 
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tabs_sensors"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tab_water_sensor"
+            android:text="Agua"
+            android:icon="@drawable/icon_water"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tab_wind_sensor"
+            android:text="Ventilación"
+            android:icon="@drawable/icon_wind"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tab_ground_sensor"
+            android:text="Suelo"
+            android:icon="@drawable/icon_ground"/>
+
+    </com.google.android.material.tabs.TabLayout>
+
     <TextView
         android:id="@+id/text_specs"
         android:layout_width="match_parent"
