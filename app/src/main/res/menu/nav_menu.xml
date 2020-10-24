@@ -25,10 +25,6 @@
             android:icon="@drawable/icon_connections"
             android:title="@string/menu_connections" />
 
-        <item
-            android:id="@+id/nav_specs"
-            android:icon="@drawable/icon_specs"
-            android:title="@string/menu_specs" />
     </group>
 
     <group android:id="@+id/group3" android:checkableBehavior="single">

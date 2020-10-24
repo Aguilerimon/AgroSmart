@@ -6,14 +6,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.FrameLayout;
 
+import com.example.agrosmart.Drawer.AccountFragment;
+import com.example.agrosmart.Drawer.ConnectionsFragment;
+import com.example.agrosmart.Drawer.ContactFragment;
+import com.example.agrosmart.Drawer.HomeFragment;
+import com.example.agrosmart.Drawer.NotificationsFragment;
+import com.example.agrosmart.Drawer.PolicyFragment;
+import com.example.agrosmart.Drawer.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -27,9 +37,14 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     TabLayout mTabLayout;
     TabItem waterTab,windTab,groundTab;
     PagerAdapter adapter;
+    HomeFragment homeFragment;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+    FrameLayout frameLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -37,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
         pager = findViewById(R.id.viewpager);
         mTabLayout = findViewById(R.id.tablayout);
+        frameLayout = findViewById(R.id.fragmentContainer);
 
         waterTab = findViewById(R.id.tab_water_sensor);
         windTab = findViewById(R.id.tab_wind_sensor);
@@ -50,6 +66,15 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         drawerLayout.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
+
+        pager.setVisibility(View.GONE);
+        mTabLayout.setVisibility(View.GONE);
+
+        homeFragment = new HomeFragment();
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.fragmentContainer,homeFragment);
+        fragmentTransaction.commit();// add the fragment
 
         adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,mTabLayout.getTabCount());
         pager.setAdapter(adapter);
@@ -72,7 +97,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
             }
         });
-
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
     }
 
@@ -80,16 +104,62 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem item)
     {
         drawerLayout.closeDrawer(GravityCompat.START);
-        if(item.getItemId() == R.id.nav_sensors || item.getItemId() == R.id.nav_specs)
+        switch(item.getItemId())
         {
-            mTabLayout.setVisibility(View.VISIBLE);
+            case R.id.nav_home:
+                loadFragment(new HomeFragment());
+                showDrawerFragments();
+            case R.id.nav_notifications:
+                loadFragment(new NotificationsFragment());
+                showDrawerFragments();
+                break;
+            case R.id.nav_connections:
+                loadFragment(new ConnectionsFragment());
+                showDrawerFragments();
+                break;
+            case R.id.nav_account:
+                loadFragment(new AccountFragment());
+                showDrawerFragments();
+                break;
+            case R.id.nav_policy:
+                loadFragment(new PolicyFragment());
+                showDrawerFragments();
+                break;
+            case R.id.nav_contact:
+                loadFragment(new ContactFragment());
+                showDrawerFragments();
+                break;
+            case R.id.nav_settings:
+                loadFragment(new SettingsFragment());
+                showDrawerFragments();
+                break;
+            case R.id.nav_sensors:
+                showTabFragments();
+                break;
+            default: return false;
         }
-        else
-        {
-            mTabLayout.setVisibility(View.GONE);
-        }
-
-
         return false;
+    }
+
+    private void showDrawerFragments()
+    {
+        pager.setVisibility(View.GONE);
+        mTabLayout.setVisibility(View.GONE);
+        frameLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void showTabFragments()
+    {
+        pager.setVisibility(View.VISIBLE);
+        mTabLayout.setVisibility(View.VISIBLE);
+        frameLayout.setVisibility(View.GONE);
+    }
+
+    private void loadFragment(Fragment newFragment)
+    {
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentContainer,newFragment);
+        fragmentTransaction.commit();
     }
 }

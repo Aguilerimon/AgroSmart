@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.agrosmart.Tab.GroundFragment;
+import com.example.agrosmart.Tab.WaterFragment;
+import com.example.agrosmart.Tab.WindFragment;
+
 public class PagerAdapter extends FragmentPagerAdapter
 {
     private int tabsNumber;
@@ -22,11 +26,11 @@ public class PagerAdapter extends FragmentPagerAdapter
         switch (position)
         {
             case 0:
-                return new First();
+                return new WaterFragment();
             case 1:
-                return new Second();
+                return new WindFragment();
             case 2 :
-                return new Third();
+                return new GroundFragment();
                 default: return null;
         }
     }
