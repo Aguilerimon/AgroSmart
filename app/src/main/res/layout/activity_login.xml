@@ -35,7 +35,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edtUsuario"
+                android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -58,7 +58,6 @@
                 android:backgroundTint="@android:color/darker_gray"
                 android:ems="10"
                 android:textSize="18dp"
-
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:paddingLeft="5dp" />
