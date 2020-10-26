@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.HeaderViewListAdapter;
 import android.widget.TextView;
 
 import com.example.agrosmart.Drawer.AccountFragment;
@@ -51,6 +52,19 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        NavigationView mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        View mHeaderView =  mNavigationView.getHeaderView(0);
+
+        TextView txtNameLogin = mHeaderView.findViewById(R.id.txt_username);
+        TextView txtEmailLogin = mHeaderView.findViewById(R.id.txt_user_mail);
+
+        Bundle datos = getIntent().getExtras();
+        String nameLogin = datos.getString("Name");
+        String emailLogin = datos.getString("Email");
+
+        txtNameLogin.setText(nameLogin);
+        txtEmailLogin.setText(emailLogin);
 
         pager = findViewById(R.id.viewpager);
         mTabLayout = findViewById(R.id.tablayout);

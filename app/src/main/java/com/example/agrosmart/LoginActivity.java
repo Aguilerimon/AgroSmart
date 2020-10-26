@@ -72,7 +72,6 @@ public class LoginActivity extends AppCompatActivity
                                 intent.putExtra("Email", Email);
 
                                 LoginActivity.this.startActivity(intent);
-                                LoginActivity.this.finish();
 
                             }
                             else
