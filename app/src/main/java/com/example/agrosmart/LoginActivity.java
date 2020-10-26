@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity
 
         getSupportActionBar().hide();
 
-        Button btn_irCuenta = findViewById(R.id.btn_ir_crearCuenta);
+        Button btnCreateAccount = findViewById(R.id.btn_create_account);
         Button btnLogin = findViewById(R.id.btnLogin);
         final EditText email = findViewById(R.id.edtEmail);
         final EditText password = findViewById(R.id.edtPassword);
@@ -53,20 +53,21 @@ public class LoginActivity extends AppCompatActivity
                 final String Email = email.getText().toString();
                 final String Password = password.getText().toString();
 
-                Response.Listener<String> respuesta = new Response.Listener<String>() {
+                Response.Listener<String> responseListener = new Response.Listener<String>()
+                {
                     @Override
                     public void onResponse(String response)
                     {
                         try
                         {
-                            JSONObject jsonRespuesta = new JSONObject(response);
-                            boolean exito = jsonRespuesta.getBoolean("success");//Del archivo de conexion
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean successResponse = jsonResponse.getBoolean("success");
 
-                            if(exito == true)
+                            if(successResponse == true)
                             {
-                                Toast.makeText(LoginActivity.this, "Credenciales validadas", Toast.LENGTH_LONG).show();
-                                String Name = jsonRespuesta.getString("Name");
-                                String Email = jsonRespuesta.getString("Email");
+                                Toast.makeText(LoginActivity.this, R.string.login_success, Toast.LENGTH_LONG).show();
+                                String Name = jsonResponse.getString("Name");
+                                String Email = jsonResponse.getString("Email");
                                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                                 intent.putExtra("Name",Name);
                                 intent.putExtra("Email", Email);
@@ -76,23 +77,23 @@ public class LoginActivity extends AppCompatActivity
                             }
                             else
                             {
-                                AlertDialog.Builder alerta = new AlertDialog.Builder(LoginActivity.this);
-                                alerta.setMessage("Error en login").setNegativeButton("Reintentar", null).create().show();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+                                alert.setMessage(R.string.login_error).setNegativeButton(R.string.retry, null).create().show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(LoginActivity.this, "Error" + e, Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, R.string.login_error + ": " + e, Toast.LENGTH_LONG).show();
                         }
                     }
                 };
 
-                LoginRequest loginRespuesta = new LoginRequest(Email,Password,respuesta);
+                LoginRequest loginResponse = new LoginRequest(Email,Password,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-                queue.add(loginRespuesta);
+                queue.add(loginResponse);
             }
         });
 
-        btn_irCuenta.setOnClickListener(new View.OnClickListener()
+        btnCreateAccount.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)

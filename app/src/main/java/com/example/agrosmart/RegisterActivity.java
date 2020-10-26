@@ -48,40 +48,41 @@ public class RegisterActivity extends AppCompatActivity
                 String Email = email.getText().toString();
                 String Password = password.getText().toString();
 
-                Response.Listener<String> respuesta = new Response.Listener<String>()
+                Response.Listener<String> responseListener = new Response.Listener<String>()
                 {
                     @Override
                     public void onResponse(String response)
                     {
                         try
                         {
-                            JSONObject jsonRespuesta = new JSONObject(response);
+                            JSONObject jsonResponse = new JSONObject(response);
 
-                            boolean exito = jsonRespuesta.getBoolean("success");//Del archivo de conexion
+                            boolean successResponse = jsonResponse.getBoolean("success");
 
-                            if(exito == true)
+                            if(successResponse == true)
                             {
                                 Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
                                 RegisterActivity.this.startActivity(intent);
                                 RegisterActivity.this.finish();
-                                Toast.makeText(RegisterActivity.this, "Registro correcto!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterActivity.this, R.string.register_success, Toast.LENGTH_LONG).show();
                             }
                             else
                             {
-                                AlertDialog.Builder alerta = new AlertDialog.Builder(RegisterActivity.this);
-                                alerta.setMessage("error en registro").setNegativeButton("Reintentar", null).create().show();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(RegisterActivity.this);
+                                alert.setMessage(R.string.register_error).setNegativeButton(R.string.retry, null).create().show();
                             }
-                        } catch (JSONException e) {
+                        } catch (JSONException e)
+                        {
                             e.printStackTrace();
-                            Toast.makeText(RegisterActivity.this, "Error" + e, Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this, R.string.register_error + ": " + e, Toast.LENGTH_LONG).show();
                         }
                     }
 
                 };
 
-                RegisterRequest registroRespuesta = new RegisterRequest(Name,PhoneNumber,Email,Password,respuesta);
+                RegisterRequest registerResponse = new RegisterRequest(Name,PhoneNumber,Email,Password,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                queue.add(registroRespuesta);
+                queue.add(registerResponse);
             }
         });
 

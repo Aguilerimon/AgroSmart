@@ -29,7 +29,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:textSize="35dp"
-                android:hint="Iniciar sesión"
+                android:hint="@string/text_login"
                 android:textColorHint="@color/black"
                 android:gravity="left"
                 android:textStyle="bold" />
@@ -43,7 +43,7 @@
                 android:textSize="18dp"
                 android:backgroundTint="@android:color/darker_gray"
                 android:ems="10"
-                android:hint="Usuario"
+                android:hint="@string/text_email"
                 android:inputType="textPersonName"
                 android:paddingLeft="5dp"
                 android:layout_marginTop="40dp"/>
@@ -58,7 +58,7 @@
                 android:backgroundTint="@android:color/darker_gray"
                 android:ems="10"
                 android:textSize="18dp"
-                android:hint="Password"
+                android:hint="@string/text_password"
                 android:inputType="textPassword"
                 android:paddingLeft="5dp" />
 
@@ -66,7 +66,7 @@
                 android:id="@+id/btn_ir_recuperar_contrasena"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/olvidaste_tu_contrasena"
+                android:text="@string/text_forgot_password"
                 android:background="@android:color/transparent"
                 android:textColor="@android:color/darker_gray"
                 android:layout_marginLeft="50dp"
@@ -81,7 +81,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginRight="15dp"
             android:background="#1976d2"
-            android:text="Iniciar Sesión"
+            android:text="@string/btn_login"
             android:textColor="#FFF"
             android:textSize="18sp" />
 
@@ -93,16 +93,16 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="15dp"
                 android:background="#1976d2"
-                android:text="Google"
+                android:text="@string/btn_google"
                 android:textColor="#FFF"
                 android:textSize="18sp"
                 android:drawableLeft="@drawable/icon_google"/>
 
             <Button
-                android:id="@+id/btn_ir_crearCuenta"
+                android:id="@+id/btn_create_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/crear_cuenta"
+                android:text="@string/text_register_account"
                 android:background="@android:color/transparent"
                 android:textColor="@android:color/darker_gray"
                 android:layout_marginTop="15dp"
