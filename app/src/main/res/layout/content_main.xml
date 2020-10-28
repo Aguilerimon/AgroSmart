@@ -49,16 +49,16 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"
-        android:layout_width="409dp"
-        android:layout_height="625dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tablayout" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
-        android:layout_width="405dp"
-        android:layout_height="613dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tablayout"
         tools:ignore="MissingConstraints" />
 
