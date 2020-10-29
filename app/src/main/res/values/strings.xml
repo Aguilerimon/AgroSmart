@@ -18,7 +18,7 @@
     <string name="text_water">Fragmet agua</string>
     <string name="text_ground">Fragment suelo</string>
     <string name="text_contact">Fragment contáctanos</string>
-    <string name="text_connections">Conexiones</string>
+    <string name="text_connections">Fragment conexiones</string>
     <string name="text_home">Fragment inicio</string>
     <string name="text_settings">Fragment configuración</string>
     <string name="text_policy"><p><b><big>Politica de privacidad</big></b></p>\n\n
@@ -130,6 +130,10 @@
     <string name="text_message" tools:ignore="MissingTranslation">Mensaje</string>
     <string name="btn_send" tools:ignore="MissingTranslation">Enviar</string>
 
+    <string name="user_name">Nombre</string>
+    <string name="email">Correo</string>
+    <string name="phone">Telefono</string>
+    <string name="pswd">Contraseña</string>
 
 
 

@@ -68,9 +68,14 @@ public class LoginActivity extends AppCompatActivity
                                 Toast.makeText(LoginActivity.this, R.string.login_success, Toast.LENGTH_LONG).show();
                                 String Name = jsonResponse.getString("Name");
                                 String Email = jsonResponse.getString("Email");
+                                String Phone = jsonResponse.getString("PhoneNumber");
+                                String Pass = jsonResponse.getString("Password");
+
                                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                                 intent.putExtra("Name",Name);
                                 intent.putExtra("Email", Email);
+                                intent.putExtra("PhoneNumber", Phone);
+                                intent.putExtra("Password", Pass);
 
                                 LoginActivity.this.startActivity(intent);
 

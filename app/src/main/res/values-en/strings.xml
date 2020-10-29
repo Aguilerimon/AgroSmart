@@ -71,4 +71,10 @@
     <string name="text_logTable">Log</string>
     <string name="buttonReconnect">Reconnect</string>
 
+    <string name="user_name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone Number</string>
+    <string name="pswd">Password</string>
+
+
 </resources>
