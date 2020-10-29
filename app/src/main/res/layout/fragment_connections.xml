@@ -68,7 +68,7 @@
                 android:layout_weight="1"
                 android:text="Buena"
                 android:textAlignment="center"
-                android:textColor="#39C80F"
+                android:textColor="#3C3F41"
                 android:textSize="16sp" />
         </TableRow>
 
