@@ -11,11 +11,11 @@
         android:layout_width="119dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:text="@string/menu_account"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,10 +47,11 @@
         android:id="@+id/textViewPass"
         android:layout_width="268dp"
         android:layout_height="41dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPassLbl" />
 
@@ -70,10 +71,11 @@
         android:id="@+id/textViewPhone"
         android:layout_width="268dp"
         android:layout_height="41dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPhoneLbl" />
 
@@ -81,10 +83,11 @@
         android:id="@+id/textViewNombre"
         android:layout_width="268dp"
         android:layout_height="41dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNombreLbl" />
 
@@ -104,11 +107,41 @@
         android:id="@+id/textViewCorreo"
         android:layout_width="268dp"
         android:layout_height="41dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#020202"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCorreoLbl" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="22dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="39dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPhoneLbl"
+        app:layout_constraintEnd_toStartOf="@+id/textViewCorreo"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCorreoLbl"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_check_24" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="22dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPassLbl"
+        app:layout_constraintEnd_toStartOf="@+id/textViewPhone"
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPhoneLbl"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_baseline_check_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

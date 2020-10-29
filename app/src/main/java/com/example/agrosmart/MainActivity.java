@@ -32,6 +32,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
+
 public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener
 {
     DrawerLayout drawerLayout;
@@ -230,4 +231,5 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         fragmentTransaction.replace(R.id.fragmentContainer,newFragment);
         fragmentTransaction.commit();
     }
+
 }
