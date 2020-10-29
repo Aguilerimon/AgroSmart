@@ -22,7 +22,7 @@
     <string name="text_home">Home fragment</string>
     <string name="text_settings">Settings fragment</string>
     <string name="text_policy">Terms fragment</string>
-    <string name="text_notifications">Notifications fragment</string>
+    <string name="text_notifications">Notifications</string>
     <string name="text_account">Account fragment</string>
 
     <string name="text_login">Sign in</string>

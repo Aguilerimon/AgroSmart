@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     FrameLayout frameLayout;
-
     String nombre, correo, phone, password;
 
     Fragment fragment = null;

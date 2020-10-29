@@ -8,16 +8,30 @@
 
     <TextView
         android:id="@+id/text_notifications"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="361dp"
+        android:layout_height="37dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/text_notifications"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.108" />
+
+    <ListView
+        android:id="@+id/list_Notifications"
+        android:layout_width="388dp"
+        android:layout_height="571dp"
+        android:layout_margin="10sp"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_notifications" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
