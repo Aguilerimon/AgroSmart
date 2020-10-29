@@ -10,7 +10,8 @@ import java.util.Map;
 public class RegisterRequest extends StringRequest
 {
 
-    private static final String registerRequest_URL = "https://www.hyrulestoreita.com/agrosmart/RegisterServer.php";    private Map<String, String> params;
+    private static final String registerRequest_URL = "https://www.hyrulestoreita.com/AgroSmartPhp/login_register/Register.php";
+    private Map<String, String> params;
 
     public RegisterRequest(String Name, String PhoneNumber, String Email, String Password, Response.Listener<String> listener)
     {

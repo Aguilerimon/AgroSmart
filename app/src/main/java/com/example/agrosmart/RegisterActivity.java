@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity
                                 Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
                                 RegisterActivity.this.startActivity(intent);
                                 RegisterActivity.this.finish();
-                                Toast.makeText(RegisterActivity.this, R.string.register_success, Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterActivity.this, R.string.register_success, Toast.LENGTH_SHORT).show();
                             }
                             else
                             {
