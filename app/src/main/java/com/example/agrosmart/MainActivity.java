@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.HeaderViewListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.agrosmart.Drawer.AccountFragment;
 import com.example.agrosmart.Drawer.ConnectionsFragment;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     FrameLayout frameLayout;
 
     String nombre, correo, phone, password;
+
+    Fragment fragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -118,7 +121,22 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
             }
         });
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+
+        showHome();
     }
+
+    private void showHome()
+    {
+        homeFragment = new HomeFragment();
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentContainer,homeFragment, homeFragment.getTag());
+        fragmentTransaction.commit();// add the fragment
+        showDrawerFragments();
+        homeStatus = true;
+    }
+
+    boolean homeStatus;
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item)
@@ -129,36 +147,67 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
             case R.id.nav_home:
                 loadFragment(new HomeFragment());
                 showDrawerFragments();
+                break;
             case R.id.nav_notifications:
                 loadFragment(new NotificationsFragment());
                 showDrawerFragments();
+                homeStatus = false;
                 break;
             case R.id.nav_connections:
                 loadFragment(new ConnectionsFragment());
                 showDrawerFragments();
+                homeStatus = false;
                 break;
             case R.id.nav_account:
                 loadFragment(new AccountFragment(nombre, correo, phone, password));
                 showDrawerFragments();
+                homeStatus = false;
                 break;
             case R.id.nav_policy:
                 loadFragment(new PolicyFragment());
                 showDrawerFragments();
+                homeStatus = false;
                 break;
             case R.id.nav_contact:
                 loadFragment(new ContactFragment());
                 showDrawerFragments();
+                homeStatus = false;
                 break;
             case R.id.nav_settings:
                 loadFragment(new SettingsFragment());
                 showDrawerFragments();
+                homeStatus = false;
                 break;
             case R.id.nav_sensors:
                 showTabFragments();
+                homeStatus = false;
                 break;
             default: return false;
         }
+
         return false;
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this, "Estatus" + homeStatus, Toast.LENGTH_LONG).show();
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else
+        {
+            if(homeStatus)
+            {
+                finishAffinity();
+            }
+            else
+            {
+                showHome();
+            }
+
+        }
     }
 
     private void showDrawerFragments()
