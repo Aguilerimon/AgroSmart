@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     FragmentTransaction fragmentTransaction;
     FrameLayout frameLayout;
 
+    String nombre, correo, phone, password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -60,11 +62,13 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         TextView txtEmailLogin = mHeaderView.findViewById(R.id.txt_user_mail);
 
         Bundle datos = getIntent().getExtras();
-        String nameLogin = datos.getString("Name");
-        String emailLogin = datos.getString("Email");
+        nombre = datos.getString("Name");
+        correo = datos.getString("Email");
+        phone = datos.getString("PhoneNumber");
+        password = datos.getString("Password");
 
-        txtNameLogin.setText(nameLogin);
-        txtEmailLogin.setText(emailLogin);
+        txtNameLogin.setText(nombre);
+        txtEmailLogin.setText(correo);
 
         pager = findViewById(R.id.viewpager);
         mTabLayout = findViewById(R.id.tablayout);
@@ -134,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                 showDrawerFragments();
                 break;
             case R.id.nav_account:
-                loadFragment(new AccountFragment());
+                loadFragment(new AccountFragment(nombre, correo, phone, password));
                 showDrawerFragments();
                 break;
             case R.id.nav_policy:

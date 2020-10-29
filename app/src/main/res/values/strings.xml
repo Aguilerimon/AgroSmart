@@ -117,10 +117,16 @@
     <string name="nav_header_desc">Cabecera navegacion</string>
     <string name="action_settings">Configuracion</string>
 
+
     <string name="text_from" tools:ignore="MissingTranslation">De:</string>
     <string name="text_subject" tools:ignore="MissingTranslation">Asunto</string>
     <string name="text_message" tools:ignore="MissingTranslation">Mensaje</string>
     <string name="btn_send" tools:ignore="MissingTranslation">Enviar</string>
+
+    <string name="user_name">Nombre</string>
+    <string name="email">Correo</string>
+    <string name="phone">Telefono</string>
+    <string name="pswd">Contraseña</string>
 
 
 
