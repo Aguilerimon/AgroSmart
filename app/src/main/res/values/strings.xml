@@ -18,7 +18,7 @@
     <string name="text_water">Fragmet agua</string>
     <string name="text_ground">Fragment suelo</string>
     <string name="text_contact">Fragment contáctanos</string>
-    <string name="text_connections">Fragment conexiones</string>
+    <string name="text_connections">Conexiones</string>
     <string name="text_home">Fragment inicio</string>
     <string name="text_settings">Fragment configuración</string>
     <string name="text_policy"><p><b><big>Politica de privacidad</big></b></p>\n\n
@@ -117,10 +117,19 @@
     <string name="nav_header_desc">Cabecera navegacion</string>
     <string name="action_settings">Configuracion</string>
 
+   <string name="text_titleTableConnections">Estado de conexion a internet</string>
+    <string name="text_connectionTable">Conexion</string>
+    <string name="text_spaceTable">Espacio utilizado</string>
+    <string name="text_warningTable">Advertencias</string>
+    <string name="text_logTable">Bitacora</string>
+    <string name="buttonReconnect">Reconectar</string>
+
+
     <string name="text_from" tools:ignore="MissingTranslation">De:</string>
     <string name="text_subject" tools:ignore="MissingTranslation">Asunto</string>
     <string name="text_message" tools:ignore="MissingTranslation">Mensaje</string>
     <string name="btn_send" tools:ignore="MissingTranslation">Enviar</string>
+
 
 
 

@@ -18,7 +18,7 @@
     <string name="text_water">Water fragment</string>
     <string name="text_ground">Ground fragment</string>
     <string name="text_contact">Fragment contáctanos</string>
-    <string name="text_connections">Fragment conexiones</string>
+    <string name="text_connections">Connections</string>
     <string name="text_home">Home fragment</string>
     <string name="text_settings">Settings fragment</string>
     <string name="text_policy">Terms fragment</string>
@@ -63,5 +63,12 @@
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <string name="text_titleTableConnections">Internet connection status</string>
+    <string name="text_connectionTable">Connection</string>
+    <string name="text_spaceTable">Used space</string>
+    <string name="text_warningTable">Warnings</string>
+    <string name="text_logTable">Log</string>
+    <string name="buttonReconnect">Reconnect</string>
 
 </resources>
