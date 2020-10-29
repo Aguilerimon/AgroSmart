@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsAccountFragment">
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="22dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPassLbl2"
+        app:layout_constraintEnd_toStartOf="@+id/textViewPhone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPhoneLbl2"
+        app:layout_constraintVertical_bias="0.818"
+        app:srcCompat="@drawable/ic_baseline_check_24" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="22dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="39dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPhoneLbl2"
+        app:layout_constraintEnd_toStartOf="@+id/textViewCorreo"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCorreoLbl2"
+        app:layout_constraintVertical_bias="0.313"
+        app:srcCompat="@drawable/ic_baseline_check_24" />
+
+    <TextView
+        android:id="@+id/textViewCuenta2"
+        android:layout_width="119dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/menu_account"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPhoneLbl2"
+        android:layout_width="94dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/phone"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCorreo2" />
+
+    <TextView
+        android:id="@+id/textViewNombreLbl2"
+        android:layout_width="94dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/user_name"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCuenta2" />
+
+    <TextView
+        android:id="@+id/textViewNombre2"
+        android:layout_width="268dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombreLbl2" />
+
+    <TextView
+        android:id="@+id/textViewCorreo2"
+        android:layout_width="268dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#020202"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCorreoLbl2" />
+
+    <TextView
+        android:id="@+id/textViewPhone2"
+        android:layout_width="268dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPhoneLbl2" />
+
+    <TextView
+        android:id="@+id/textViewPass2"
+        android:layout_width="268dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPassLbl2" />
+
+    <TextView
+        android:id="@+id/textViewPassLbl2"
+        android:layout_width="94dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/pswd"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPhone2" />
+
+    <TextView
+        android:id="@+id/textViewCorreoLbl2"
+        android:layout_width="94dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/email"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombre2" />
+
+    <ImageView
+        android:id="@+id/imageVieweditNombre"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/ic_baseline_create_24"
+        app:layout_constraintBottom_toTopOf="@+id/textViewCorreoLbl2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombreLbl2"
+        app:layout_constraintVertical_bias="0.442" />
+
+    <ImageView
+        android:id="@+id/imageVieweditCorreo"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/ic_baseline_create_24"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPhoneLbl2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCorreoLbl2" />
+
+    <ImageView
+        android:id="@+id/imageVieweditPhone"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/ic_baseline_create_24"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPassLbl2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPhoneLbl2" />
+
+    <ImageView
+        android:id="@+id/imageVieweditPhone2"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
+        android:src="@drawable/ic_baseline_create_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPassLbl2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
