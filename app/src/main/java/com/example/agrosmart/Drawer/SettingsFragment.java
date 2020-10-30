@@ -16,7 +16,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.agrosmart.Drawer.Settings.SettingsAccountFragment;
 import com.example.agrosmart.Drawer.Settings.SettingsBackupFragment;
+import com.example.agrosmart.Drawer.Settings.SettingsInformationFragment;
 import com.example.agrosmart.Drawer.Settings.SettingsNotificationsFragment;
+import com.example.agrosmart.Drawer.Settings.SettingsSecurityFragment;
 import com.example.agrosmart.R;
 
 public class SettingsFragment extends Fragment
@@ -84,6 +86,38 @@ public class SettingsFragment extends Fragment
                 fragmentManager = getFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.add(R.id.fragmentContainer,settingsBackupFragment);
+                fragmentTransaction.commit();// add the fragment
+            }
+        });
+
+        settingsSecurity.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                getFragmentManager().beginTransaction().
+                        remove(getFragmentManager().findFragmentById(R.id.fragmentContainer)).commit();
+
+                SettingsSecurityFragment settingsSecurityFragment = new SettingsSecurityFragment();
+                fragmentManager = getFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.add(R.id.fragmentContainer,settingsSecurityFragment);
+                fragmentTransaction.commit();// add the fragment
+            }
+        });
+
+        settingsInformation.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                getFragmentManager().beginTransaction().
+                        remove(getFragmentManager().findFragmentById(R.id.fragmentContainer)).commit();
+
+                SettingsInformationFragment settingsInformationFragment = new SettingsInformationFragment();
+                fragmentManager = getFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.add(R.id.fragmentContainer,settingsInformationFragment);
                 fragmentTransaction.commit();// add the fragment
             }
         });
