@@ -133,6 +133,16 @@
     <string name="text_logTable">Bitacora</string>
     <string name="buttonReconnect">Reconectar</string>
 
+    <string name="settings_notifications">Configuracion de Notificaciones</string>
+    <string name="settings_seconTitle">Notificaciones que recibes</string>
+    <string name="settings_notifi_medicion">Mediciones de sensores</string>
+    <string name="settings_notifi_conection">Conexion/desconexion</string>
+    <string name="settings_notifi_ofer">Ofertas de la empresa</string>
+    <string name="settings_notifi_loginsin">Inicios de sesion desconocidos</string>
+
+    <string name="settings_copyBack">Copia/Respaldo</string>
+    <string name="settings_seconTitleCopy">Respaldo automatico</string>
+    <string name="settings_notifi_geneResp">Generar respaldos de informacion de manera automatica</string>
 
     <string name="text_from">De:</string>
     <string name="text_subject">Asunto</string>
@@ -143,6 +153,9 @@
     <string name="email">Correo</string>
     <string name="phone">Teléfono</string>
     <string name="pswd">Contraseña</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
 
     <string name="settings_notifications_description">Habilitar o desabilitar notificaciones</string>
     <string name="settings_backup">Copia/respaldo</string>
