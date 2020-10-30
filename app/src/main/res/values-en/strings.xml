@@ -126,4 +126,10 @@
     <string name="settings_information_description2">1.0.0.1</string>
     <string name="settings_information_description3">Agro Smart and logos are the property of Agro Smart</string>
 
+    <string name="home_columna1">Time</string>
+    <string name="home_columnaAgua">Ph</string>
+    <string name="home_columnaTierra">Solid solutions(STD)</string>
+    <string name="home_columnaAire">Sulfur Dioxide (SO2)</string>
+    <string name="home_actual">Actual</string>
+
 </resources>

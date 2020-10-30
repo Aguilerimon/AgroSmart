@@ -18,7 +18,7 @@
     <string name="text_ground">Fragment suelo</string>
     <string name="text_contact">Fragment contáctanos</string>
     <string name="text_connections">Conexiones</string>
-    <string name="text_home">Fragment inicio</string>
+    <string name="text_home">Últimos registros</string>
     <string name="text_settings">Configuración</string>
     <string name="text_policy"><p><b><big>Politica de privacidad</big></b></p>\n\n
         <p align="justify">La presente Política de Privacidad
@@ -181,7 +181,11 @@
     <string name="settings_information_description2">1.0.0.1</string>
     <string name="settings_information_description3">Agro Smart y logotipos son propiedad de Agro Smart</string>
 
-
+    <string name="home_columna1">Hora</string>
+    <string name="home_columnaAgua">Ph</string>
+    <string name="home_columnaTierra">Solidos en solucion (STD)</string>
+    <string name="home_columnaAire">Dioxido de azufre (SO2)</string>
+    <string name="home_actual">Actual</string>
 
 
 </resources>

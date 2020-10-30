@@ -26,13 +26,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginBottom="344dp"
         android:text="@string/settings_notifi_loginsin"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView35"
-        app:layout_constraintVertical_bias="0.255" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView33"
@@ -63,6 +61,7 @@
         android:layout_marginStart="96dp"
         android:layout_marginBottom="14dp"
         app:layout_constraintBottom_toTopOf="@+id/switch_conDis"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView34" />
 
     <Switch
@@ -72,6 +71,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginBottom="14dp"
         app:layout_constraintBottom_toTopOf="@+id/switch_compOffers"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView33" />
 
     <Switch
@@ -81,6 +81,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginBottom="340dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView36" />
 
     <Switch
@@ -90,6 +91,7 @@
         android:layout_marginStart="112dp"
         android:layout_marginBottom="14dp"
         app:layout_constraintBottom_toTopOf="@+id/switch_UnkLogins"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView35" />
 
     <TextView
@@ -100,8 +102,10 @@
         android:layout_marginTop="20dp"
         android:text="@string/settings_notifi_ofer"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView36"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+        app:layout_constraintTop_toBottomOf="@+id/textView33"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView32"
