@@ -107,9 +107,23 @@
     <string name="settings_backup_description">Create a backup of the storage data</string>
     <string name="settings_account">Account</string>
     <string name="settings_account_description">Update your name, phone and email</string>
+
     <string name="settings_security">Security and login</string>
     <string name="settings_security_description">Change your paswword and take other ways in order to protect your account</string>
+    <string name="settings_security_title1">Sessions started</string>
+    <string name="settings_security_title2">Sing in</string>
+    <string name="settings_security_title3">Two-step authentication</string>
+    <string name="settings_security_title4">Notificaciones de acceso desconocido</string>
+    <string name="settings_security_description1">Sign out</string>
+    <string name="settings_security_description2">Update Password</string>
+    <string name="settings_security_description3">Use two-step authentication</string>
+    <string name="settings_security_description4">Authentication App</string>
+    <string name="settings_security_description5">SMS message</string>
+    <string name="settings_security_description6">Receive unauthorized login alerts</string>
+
     <string name="settings_information">Information</string>
     <string name="settings_information_description">application version</string>
+    <string name="settings_information_description2">1.0.0.1</string>
+    <string name="settings_information_description3">Agro Smart and logos are the property of Agro Smart</string>
 
 </resources>

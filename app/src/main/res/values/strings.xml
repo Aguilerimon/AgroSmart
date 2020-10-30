@@ -162,10 +162,25 @@
     <string name="settings_backup_description">Genera una copia de seguridad de los datos almacenados</string>
     <string name="settings_account">Cuenta</string>
     <string name="settings_account_description">Actualiza tu nombre, telefono y direccion de correo electrónico</string>
+
     <string name="settings_security">Seguridad e inicio de sesión</string>
     <string name="settings_security_description">Cambia la contraseña y toma otras medidas para proteger tu cuenta</string>
+    <string name="settings_security_title1">Donde iniciaste sesión</string>
+    <string name="settings_security_title2">Inicio de sesion</string>
+    <string name="settings_security_title3">Autentificacion de dos pasos</string>
+    <string name="settings_security_title4">Notificaciones de acceso desconocido</string>
+    <string name="settings_security_description1">Cerrar sesion</string>
+    <string name="settings_security_description2">Cambiar contraseña</string>
+    <string name="settings_security_description3">Usar autenticacion de dos pasos</string>
+    <string name="settings_security_description4">App de autenticacion</string>
+    <string name="settings_security_description5">Mensaje SMS</string>
+    <string name="settings_security_description6">Recibir alertas de inicio de sesion no autorizados</string>
+
     <string name="settings_information">Información</string>
     <string name="settings_information_description">Version de aplicación</string>
+    <string name="settings_information_description2">1.0.0.1</string>
+    <string name="settings_information_description3">Agro Smart y logotipos son propiedad de Agro Smart</string>
+
 
 
 
