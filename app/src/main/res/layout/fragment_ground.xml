@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Parametros"
+                    android:text="@string/parameters_sensor"
                     android:textStyle="bold" />
 
                 <TextView
@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Unidad"
+                    android:text="@string/unit_sensor"
                     android:textStyle="bold" />
 
                 <TextView
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Valores"
+                    android:text="@string/values_sensor"
                     android:textStyle="bold" />
             </TableRow>
 
@@ -326,7 +326,7 @@
         android:layout_height="19dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
-        android:text="Sensores Activos"
+        android:text="@string/text_sensor"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
