@@ -86,6 +86,17 @@
     <string name="text_message">Message</string>
     <string name="btn_send">Send</string>
 
+    <string name="settings_notifications">Settings Notifications</string>
+    <string name="settings_seconTitle">Notifications that you receive</string>
+    <string name="settings_notifi_medicion">Sensor measurements</string>
+    <string name="settings_notifi_conection">Connection/disconnection</string>
+    <string name="settings_notifi_ofer">Company offers</string>
+    <string name="settings_notifi_loginsin">Unknown Logins</string>
+
+    <string name="settings_copyBack">Copy/Backup</string>
+    <string name="settings_seconTitleCopy">Automatic backup</string>
+    <string name="settings_notifi_geneResp">Automatically generate data backups</string>
+
     <string name="user_name">Name</string>
     <string name="email">Email</string>
     <string name="phone">Phone Number</string>
