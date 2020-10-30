@@ -1,4 +1,4 @@
-package com.example.agrosmart;
+package com.example.agrosmart.Drawer.Settings;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -12,9 +12,11 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.agrosmart.R;
+
 import java.util.ArrayList;
 
-public class Notifications extends Fragment {
+public class NotificationsFragment extends Fragment {
     ListView notificaciones;
     ArrayList<String> notifications;
 
