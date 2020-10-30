@@ -6,18 +6,277 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/text_home"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
+    <TableLayout
+        android:id="@+id/table_homeground"
+        android:layout_width="386dp"
+        android:layout_height="189dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#A5A5A5">
+
+            <TextView
+                android:id="@+id/textcolumna1_2"
+                android:layout_height="match_parent"
+                android:layout_margin="8px"
+                android:text="@string/home_columna1"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textcolumna2_2"
+                android:layout_width="316dp"
+                android:layout_height="match_parent"
+                android:layout_margin="8px"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:text="@string/home_columnaTierra"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/text5"
+                android:layout_width="193dp"
+                android:layout_height="wrap_content"
+                android:text="@string/home_actual"
+                android:textAlignment="center"
+                android:textIsSelectable="false" />
+
+            <TextView
+                android:id="@+id/text_home_info_grou1"
+                android:layout_width="179dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="#3C3F41"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/text6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12:00"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/texttext_home_info_grou2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="386dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/text7"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="11:30"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/text_home_info_grou3"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/text8"
+                android:layout_width="183dp"
+                android:layout_height="wrap_content"
+                android:text="11:00"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/text_home_info_grou4"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/table_homewater"
+        android:layout_width="386dp"
+        android:layout_height="189dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.243">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#A5A5A5">
+
+            <TextView
+                android:id="@+id/textView54"
+                android:layout_height="match_parent"
+                android:layout_margin="8px"
+                android:text="@string/home_columna1"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView_titleTableConnections"
+                android:layout_width="316dp"
+                android:layout_height="match_parent"
+                android:layout_margin="8px"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:text="@string/home_columnaAgua"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="193dp"
+                android:layout_height="wrap_content"
+                android:text="@string/home_actual"
+                android:textAlignment="center"
+                android:textIsSelectable="false" />
+
+            <TextView
+                android:id="@+id/text_home_info_water1"
+                android:layout_width="179dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="#3C3F41"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12:00"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/text_home_info_water2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="386dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="11:30"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/text_home_info_water3"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="183dp"
+                android:layout_height="wrap_content"
+                android:text="11:00"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/text_home_info_water4"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/title_home"
+        android:layout_width="376dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/text_home"
+        android:textAlignment="viewStart"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="35dp"
+        android:layout_height="33dp"
+        android:backgroundTint="#1946CF"
+        app:layout_constraintBottom_toTopOf="@+id/table_homewater"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/icon_water" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="36dp"
+        android:layout_height="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/table_homeground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/icon_ground" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
