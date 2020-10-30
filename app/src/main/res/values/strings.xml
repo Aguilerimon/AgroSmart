@@ -19,7 +19,7 @@
     <string name="text_contact">Fragment contáctanos</string>
     <string name="text_connections">Conexiones</string>
     <string name="text_home">Fragment inicio</string>
-    <string name="text_settings">Fragment configuración</string>
+    <string name="text_settings">Configuración</string>
     <string name="text_policy"><p><b><big>Politica de privacidad</big></b></p>\n\n
         <p align="justify">La presente Política de Privacidad
         establece los términos en que <b>AgroSmart</b>  usa y protege la información que
@@ -124,15 +124,26 @@
     <string name="buttonReconnect">Reconectar</string>
 
 
-    <string name="text_from" tools:ignore="MissingTranslation">De:</string>
-    <string name="text_subject" tools:ignore="MissingTranslation">Asunto</string>
-    <string name="text_message" tools:ignore="MissingTranslation">Mensaje</string>
-    <string name="btn_send" tools:ignore="MissingTranslation">Enviar</string>
+    <string name="text_from">De:</string>
+    <string name="text_subject">Asunto</string>
+    <string name="text_message">Mensaje</string>
+    <string name="btn_send">Enviar</string>
 
     <string name="user_name">Nombre</string>
     <string name="email">Correo</string>
     <string name="phone">Teléfono</string>
     <string name="pswd">Contraseña</string>
+
+    <string name="settings_notifications_description">Habilitar o desabilitar notificaciones</string>
+    <string name="settings_backup">Copia/respaldo</string>
+    <string name="settings_backup_description">Genera una copia de seguridad de los datos almacenados</string>
+    <string name="settings_account">Cuenta</string>
+    <string name="settings_account_description">Actualiza tu nombre, telefono y direccion de correo electrónico</string>
+    <string name="settings_security">Seguridad e inicio de sesión</string>
+    <string name="settings_security_description">Cambia la contraseña y toma otras medidas para proteger tu cuenta</string>
+    <string name="settings_information">Información</string>
+    <string name="settings_information_description">Version de aplicación</string>
+
 
 
 </resources>

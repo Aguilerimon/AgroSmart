@@ -191,7 +191,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     @Override
     public void onBackPressed()
     {
-        Toast.makeText(this, "Estatus" + homeStatus, Toast.LENGTH_LONG).show();
         if(drawerLayout.isDrawerOpen(GravityCompat.START))
         {
             drawerLayout.closeDrawer(GravityCompat.START);
