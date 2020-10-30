@@ -1,6 +1,7 @@
 package com.example.agrosmart.Drawer;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import org.w3c.dom.Text;
 
 public class AccountFragment extends Fragment
 {
+    AccountFragment accountFragment;
     String  name, email, phoneNumber, password;
 
     @Nullable
@@ -33,6 +35,10 @@ public class AccountFragment extends Fragment
         textViewCorreo.setText(email);
         textViewTelefono.setText(phoneNumber);
         textViewPass.setText(password);
+
+
+
+
 
         return view;
     }

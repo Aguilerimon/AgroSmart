@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
         <EditText
             android:id="@+id/edt_subject"
             android:layout_width="match_parent"
@@ -24,7 +23,7 @@
         <EditText
             android:id="@+id/edt_message"
             android:layout_width="match_parent"
-            android:layout_height="550dp"
+            android:layout_height="240dp"
             android:hint="@string/text_message"
             android:textSize="20sp"
             android:padding="10dp"
