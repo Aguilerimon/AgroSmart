@@ -10,12 +10,11 @@
         android:id="@+id/table_homeground"
         android:layout_width="386dp"
         android:layout_height="189dp"
+        android:layout_marginBottom="148dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.708">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -130,11 +129,11 @@
         android:id="@+id/table_homewater"
         android:layout_width="386dp"
         android:layout_height="189dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="156dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.243">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -277,6 +276,7 @@
         app:layout_constraintBottom_toTopOf="@+id/table_homeground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table_homewater"
         app:srcCompat="@drawable/icon_ground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
