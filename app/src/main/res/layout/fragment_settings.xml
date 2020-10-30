@@ -192,14 +192,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_account"
+                android:text="@string/settings_information"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_account_description"
+                android:text="@string/settings_information_description"
                 android:textSize="14sp"></TextView>
         </LinearLayout>
     </LinearLayout>
