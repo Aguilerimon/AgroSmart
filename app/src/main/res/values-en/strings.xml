@@ -43,6 +43,16 @@
     <string name="tab_water">Water</string>
     <string name="tab_wind">Wind</string>
     <string name="tab_ground">Ground</string>
+    <string name="parameters_sensor">Parameters</string>
+    <string name="unit_sensor">Unit</string>
+    <string name="values_sensor">Values</string>
+    <string name="text_sensor">Active Sensors</string>
+
+    <string name="btn_irrigate">Irrigate</string>
+    <string name="switch_irrigate">Automatic Watering</string>
+
+    <string name="btn_ventilate">Ventilate</string>
+    <string name="switch_ventilate">Automatic Ventilation</string>
 
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
