@@ -1,4 +1,4 @@
-package com.example.agrosmart.Drawer;
+package com.example.agrosmart.NavigationDrawer;
 
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -13,12 +13,18 @@ import androidx.fragment.app.Fragment;
 
 import com.example.agrosmart.R;
 
-import org.w3c.dom.Text;
 
 public class AccountFragment extends Fragment
 {
-    AccountFragment accountFragment;
     String  name, email, phoneNumber, password;
+
+    /*public AccountFragment(String nombre, String correo, String phone, String pass)
+    {
+        this.name = nombre;
+        this.email = correo;
+        this.phoneNumber = phone;
+        this.password = pass;
+    }*/
 
     @Nullable
     @Override
@@ -37,22 +43,8 @@ public class AccountFragment extends Fragment
         textViewPass.setText(password);
 
 
-
-
-
         return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
-    {
-        super.onViewCreated(view, savedInstanceState);
-    }
 
-    public AccountFragment(String nombre, String correo, String phone, String pass){
-        this.name = nombre;
-        this.email = correo;
-        this.phoneNumber = phone;
-        this.password = pass;
-    }
 }

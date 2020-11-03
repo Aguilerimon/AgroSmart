@@ -6,24 +6,42 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/title_connections"
-        android:layout_width="376dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="8dp"
+        android:id="@+id/textViewConnections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/text_connections"
-        android:textAlignment="viewStart"
+        android:textAlignment="center"
+        android:textColor="#050505"
         android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112" />
+        android:layout_marginTop="15dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConnections"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center">
 
     <TableLayout
         android:id="@+id/table_connections"
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,8 +183,7 @@
                 android:layout_marginTop="5sp"
                 android:layout_marginRight="8sp"
                 android:background="#A6E609"
-                android:text="Sensores Activos"
-                android:textAlignment="center" />
+                android:text="Sensores Activos" />
 
             <Button
                 android:id="@+id/button_waterRactiv"
@@ -198,8 +215,7 @@
                 android:layout_marginTop="5sp"
                 android:layout_marginRight="8sp"
                 android:background="#A6E609"
-                android:text="Sensores Activos"
-                android:textAlignment="center" />
+                android:text="Sensores Activos" />
 
             <Button
                 android:id="@+id/button_groundRactiv"
@@ -231,8 +247,7 @@
                 android:layout_marginTop="5sp"
                 android:layout_marginRight="8sp"
                 android:background="#A6E609"
-                android:text="Sensores Activos"
-                android:textAlignment="center" />
+                android:text="Sensores Activos" />
 
             <Button
                 android:id="@+id/button_windRactiv"
@@ -240,9 +255,13 @@
                 android:layout_height="38dp"
                 android:layout_weight="1"
                 android:text="@string/buttonReconnect"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:layout_marginBottom="20dp"/>
         </TableRow>
 
     </TableLayout>
+    </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

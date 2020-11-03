@@ -14,9 +14,9 @@
 
         <ImageView
             android:id="@+id/imageView10"
-            android:layout_width="359dp"
-            android:layout_height="253dp"
-            android:layout_marginTop="100dp"
+            android:layout_width="220dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/logo_as"
             android:layout_gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
         android:layout_width="253dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="260dp"
         android:text="@string/settings_information_description"
         android:textAlignment="center"
         android:textSize="16sp" />
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginStart="170dp"
+        android:layout_marginStart="360dp"
         android:layout_marginTop="10dp"
         android:text="@string/settings_information_description2"/>
 
@@ -46,14 +46,14 @@
         android:id="@+id/textView40"
         android:layout_width="351dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="176dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/settings_information_description3"
         android:textColor="#037C71"
-        android:textSize="18sp"
-        android:layout_marginTop="60dp"
+        android:textSize="18sp" 
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        android:layout_marginStart="20dp"/>
-
+        android:layout_marginStart="205dp"/>
+        
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

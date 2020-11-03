@@ -1,51 +1,36 @@
 package com.example.agrosmart;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
-
+import android.accounts.Account;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.Menu;
 import android.widget.TextView;
 
-import com.example.agrosmart.Drawer.AccountFragment;
-import com.example.agrosmart.Drawer.ConnectionsFragment;
-import com.example.agrosmart.Drawer.ContactFragment;
-import com.example.agrosmart.Drawer.HomeFragment;
-import com.example.agrosmart.Drawer.NotificationsFragment;
-import com.example.agrosmart.Drawer.PolicyFragment;
-import com.example.agrosmart.Drawer.SettingsFragment;
+import com.example.agrosmart.NavigationDrawer.AccountFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabItem;
-import com.google.android.material.tabs.TabLayout;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 
-public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener
+public class MainActivity extends AppCompatActivity
 {
-    DrawerLayout drawerLayout;
-    ActionBarDrawerToggle toggle;
-    NavigationView navigationView;
-    ViewPager pager;
-    TabLayout mTabLayout;
-    TabItem waterTab,windTab,groundTab;
-    PagerAdapter adapter;
-    HomeFragment homeFragment;
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-    FrameLayout frameLayout;
+    private AppBarConfiguration mAppBarConfiguration;
     String nombre, correo, phone, password;
-
-    Fragment fragment = null;
+    NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -55,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        NavigationView mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         View mHeaderView =  mNavigationView.getHeaderView(0);
 
         TextView txtNameLogin = mHeaderView.findViewById(R.id.txt_username);
@@ -67,165 +52,48 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         phone = datos.getString("PhoneNumber");
         password = datos.getString("Password");
 
+
         txtNameLogin.setText(nombre);
         txtEmailLogin.setText(correo);
 
-        pager = findViewById(R.id.viewpager);
-        mTabLayout = findViewById(R.id.tablayout);
-        frameLayout = findViewById(R.id.fragmentContainer);
 
-        waterTab = findViewById(R.id.tab_water_sensor);
-        windTab = findViewById(R.id.tab_wind_sensor);
-        groundTab = findViewById(R.id.tab_ground_sensor);
-
-        drawerLayout = findViewById(R.id.drawer);
-        navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.setDrawerIndicatorEnabled(true);
-        toggle.syncState();
-
-        pager.setVisibility(View.GONE);
-        mTabLayout.setVisibility(View.GONE);
-
-        homeFragment = new HomeFragment();
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragmentContainer,homeFragment);
-        fragmentTransaction.commit();// add the fragment
-
-        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,mTabLayout.getTabCount());
-        pager.setAdapter(adapter);
-
-        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onTabSelected(TabLayout.Tab tab)
+            public void onClick(View view)
             {
-                pager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
+                Snackbar.make(view, "ChatBot", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
-        pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-
-        showHome();
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_notifications, R.id.nav_connections, R.id.nav_account,
+                R.id.nav_settings, R.id.nav_settings, R.id.nav_policy, R.id.nav_contact)
+                .setDrawerLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    private void showHome()
-    {
-        homeFragment = new HomeFragment();
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainer,homeFragment, homeFragment.getTag());
-        fragmentTransaction.commit();// add the fragment
-        showDrawerFragments();
-        homeStatus = true;
-    }
 
-    boolean homeStatus;
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item)
+    public boolean onCreateOptionsMenu(Menu menu)
     {
-        drawerLayout.closeDrawer(GravityCompat.START);
-        switch(item.getItemId())
-        {
-            case R.id.nav_home:
-                loadFragment(new HomeFragment());
-                showDrawerFragments();
-                break;
-            case R.id.nav_notifications:
-                loadFragment(new NotificationsFragment());
-                showDrawerFragments();
-                homeStatus = false;
-                break;
-            case R.id.nav_connections:
-                loadFragment(new ConnectionsFragment());
-                showDrawerFragments();
-                homeStatus = false;
-                break;
-            case R.id.nav_account:
-                loadFragment(new AccountFragment(nombre, correo, phone, password));
-                showDrawerFragments();
-                homeStatus = false;
-                break;
-            case R.id.nav_policy:
-                loadFragment(new PolicyFragment());
-                showDrawerFragments();
-                homeStatus = false;
-                break;
-            case R.id.nav_contact:
-                loadFragment(new ContactFragment());
-                showDrawerFragments();
-                homeStatus = false;
-                break;
-            case R.id.nav_settings:
-                loadFragment(new SettingsFragment());
-                showDrawerFragments();
-                homeStatus = false;
-                break;
-            case R.id.nav_sensors:
-                showTabFragments();
-                homeStatus = false;
-                break;
-            default: return false;
-        }
-
-        return false;
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 
     @Override
-    public void onBackPressed()
+    public boolean onSupportNavigateUp()
     {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START))
-        {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else
-        {
-            if(homeStatus)
-            {
-                finishAffinity();
-            }
-            else
-            {
-                showHome();
-            }
-
-        }
-    }
-
-    private void showDrawerFragments()
-    {
-        pager.setVisibility(View.GONE);
-        mTabLayout.setVisibility(View.GONE);
-        frameLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void showTabFragments()
-    {
-        pager.setVisibility(View.VISIBLE);
-        mTabLayout.setVisibility(View.VISIBLE);
-        frameLayout.setVisibility(View.GONE);
-    }
-
-    private void loadFragment(Fragment newFragment)
-    {
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainer,newFragment);
-        fragmentTransaction.commit();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 
 }

@@ -5,16 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints">
 
     <LinearLayout
-        android:layout_width="385dp"
-        android:layout_height="635dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:background="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?android:attr/textSelectHandle" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="103dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/text_sensor"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="134dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="90dp"
+            android:text="@string/switch_irrigate"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        android:layout_marginBottom="20dp">
 
         <TableLayout
             android:id="@+id/tableLayout3"
@@ -62,8 +111,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="pH" />
 
                 <TextView
@@ -71,8 +120,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="-" />
 
                 <TextView
@@ -80,20 +129,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="0-5.5" />
 
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="M.O" />
 
                 <TextView
@@ -101,8 +151,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="%" />
 
                 <TextView
@@ -110,19 +160,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="0-21.7" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="Aluminio (Al)" />
 
                 <TextView
@@ -130,8 +181,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="cmol/kg" />
 
                 <TextView
@@ -139,19 +190,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="0-1.52" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="Calcio (Ca2+)" />
 
                 <TextView
@@ -159,8 +211,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="cmol/kg" />
 
                 <TextView
@@ -168,19 +220,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="0-5" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="Magnesio (Mg2+)" />
 
                 <TextView
@@ -188,8 +241,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="cmol/kg" />
 
                 <TextView
@@ -197,19 +250,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="0-1.6" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:id="@+id/textView19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="Potasio (K+)" />
 
                 <TextView
@@ -217,8 +271,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="cmol/kg" />
 
                 <TextView
@@ -226,19 +280,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="0-0.52" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:id="@+id/textView22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="Fosforo (P)" />
 
                 <TextView
@@ -246,8 +301,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="cmol/kg" />
 
                 <TextView
@@ -255,19 +310,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="0-25.83" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:id="@+id/textView25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="Boro (B)" />
 
                 <TextView
@@ -275,8 +331,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="cmol/kg" />
 
                 <TextView
@@ -284,19 +340,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="0-0.28" />
             </TableRow>
 
             <TableRow>
+
                 <TextView
                     android:id="@+id/textView28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="Hierro (Fe)" />
 
                 <TextView
@@ -304,8 +361,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="cmol/kg" />
 
                 <TextView
@@ -313,8 +370,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="#ffffff"
+                    android:gravity="center"
                     android:text="0-357.5" />
             </TableRow>
         </TableLayout>
@@ -325,43 +382,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/btn_irrigate"
+            android:layout_marginTop="20dp"
             tools:ignore="MissingConstraints" />
 
     </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
 
-    <TextView
-        android:id="@+id/textView31"
-        android:layout_width="103dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/text_sensor"
-        android:textSize="12dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
 
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="134dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/switch_irrigate"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:background="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?android:attr/textSelectHandle" />
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

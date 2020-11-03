@@ -7,21 +7,16 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="361dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/textViewNotificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/text_notifications"
-        android:textAlignment="viewStart"
+        android:textAlignment="center"
+        android:textColor="#050505"
         android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        android:layout_marginTop="15dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ListView
         android:id="@+id/list_Notifications"
@@ -33,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_notifications"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNotificaciones"
         app:layout_constraintVertical_bias="0.102" />
 
 

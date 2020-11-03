@@ -6,202 +6,225 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/title_settings"
-        android:layout_width="376dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="8dp"
-        android:text="@string/text_settings"
-        android:textAlignment="viewStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_settings"
+        android:textAlignment="center"
+        android:textColor="#050505"
         android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112" />
+        android:background="@color/colorPrimaryDark"/>
 
     <LinearLayout
-        android:id="@+id/settings_account"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/title_settings">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/title_settings"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="10dp">
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/icon_account"></ImageView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp">
 
-            <TextView
+
+            <LinearLayout
+                android:id="@+id/settings_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_account"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimaryDark"></TextView>
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/title_settings">
 
-            <TextView
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/icon_account"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_account"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_account_description"
+                        android:textSize="14sp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_security"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_account_description"
-                android:textSize="14sp"></TextView>
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/settings_account"
+                tools:layout_editor_absoluteX="20dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/icon_security"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_security"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_security_description"
+                        android:textSize="14sp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_backup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/settings_security"
+                tools:layout_editor_absoluteX="20dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/icon_backup"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_backup"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_backup_description"
+                        android:textSize="14sp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/settings_backup">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/icon_notifications"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_notifications"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_notifications_description"
+                        android:textSize="14sp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/settings_notifications">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/icon_information"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_information"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_information_description"
+                        android:textSize="14sp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/settings_security"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/settings_account"
-        tools:layout_editor_absoluteX="20dp">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/icon_security"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_security"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_security_description"
-                android:textSize="14sp"></TextView>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/settings_backup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/settings_security"
-        tools:layout_editor_absoluteX="20dp">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/icon_backup"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_backup"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_backup_description"
-                android:textSize="14sp"></TextView>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/settings_notifications"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/settings_backup">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/icon_notifications"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/text_notifications"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_notifications_description"
-                android:textSize="14sp"></TextView>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/settings_information"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/settings_notifications">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/icon_information"></ImageView>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_information"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_information_description"
-                android:textSize="14sp"></TextView>
-        </LinearLayout>
+    </ScrollView>
     </LinearLayout>
 
 
