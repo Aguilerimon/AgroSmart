@@ -1,36 +1,50 @@
 package com.example.agrosmart;
 
-import android.accounts.Account;
-import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.agrosmart.NavigationDrawer.AccountFragment;
+import com.example.agrosmart.NavigationDrawer.ConnectionsFragment;
+import com.example.agrosmart.NavigationDrawer.ContactFragment;
+import com.example.agrosmart.NavigationDrawer.HomeFragment;
+import com.example.agrosmart.NavigationDrawer.NotificationsFragment;
+import com.example.agrosmart.NavigationDrawer.PolicyFragment;
+import com.example.agrosmart.NavigationDrawer.SensorsFragment;
+import com.example.agrosmart.NavigationDrawer.SettingsFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener
 {
-    private AppBarConfiguration mAppBarConfiguration;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle toggle;
+    NavigationView navigationView;
+    TabItem waterTab,windTab,groundTab;
+    HomeFragment homeFragment;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+    FrameLayout frameLayout;
     String nombre, correo, phone, password;
-    NavigationView mNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         View mHeaderView =  mNavigationView.getHeaderView(0);
 
         TextView txtNameLogin = mHeaderView.findViewById(R.id.txt_username);
@@ -52,10 +66,27 @@ public class MainActivity extends AppCompatActivity
         phone = datos.getString("PhoneNumber");
         password = datos.getString("Password");
 
-
         txtNameLogin.setText(nombre);
         txtEmailLogin.setText(correo);
 
+        frameLayout = findViewById(R.id.nav_host_fragment);
+
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.setDrawerIndicatorEnabled(true);
+        toggle.syncState();
+
+        homeFragment = new HomeFragment();
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.nav_host_fragment,homeFragment);
+        fragmentTransaction.commit();// add the fragment
+        showHome();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener()
@@ -67,33 +98,91 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_notifications, R.id.nav_connections, R.id.nav_account,
-                R.id.nav_settings, R.id.nav_settings, R.id.nav_policy, R.id.nav_contact)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+    }
+
+    private void showHome()
+    {
+        homeFragment = new HomeFragment();
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.nav_host_fragment,homeFragment, homeFragment.getTag());
+        fragmentTransaction.commit();// add the fragment
+        homeStatus = true;
+    }
+
+    boolean homeStatus;
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item)
+    {
+        drawerLayout.closeDrawer(GravityCompat.START);
+        switch(item.getItemId())
+        {
+            case R.id.nav_home:
+                loadFragment(new HomeFragment());
+                break;
+            case R.id.nav_notifications:
+                loadFragment(new NotificationsFragment());
+                homeStatus = false;
+                break;
+            case R.id.nav_sensors:
+                loadFragment(new SensorsFragment());
+                homeStatus = false;
+                break;
+            case R.id.nav_connections:
+                loadFragment(new ConnectionsFragment());
+                homeStatus = false;
+                break;
+            case R.id.nav_account:
+                loadFragment(new AccountFragment(nombre, correo, phone, password));
+                homeStatus = false;
+                break;
+            case R.id.nav_policy:
+                loadFragment(new PolicyFragment());
+                homeStatus = false;
+                break;
+            case R.id.nav_contact:
+                loadFragment(new ContactFragment());
+                homeStatus = false;
+                break;
+            case R.id.nav_settings:
+                loadFragment(new SettingsFragment());
+                homeStatus = false;
+                break;
+            default: return false;
+        }
+
+        return false;
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else
+        {
+            if(homeStatus)
+            {
+                finishAffinity();
+            }
+            else
+            {
+                showHome();
+            }
+
+        }
     }
 
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
+    private void loadFragment(Fragment newFragment)
     {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onSupportNavigateUp()
-    {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.nav_host_fragment,newFragment);
+        fragmentTransaction.commit();
     }
 
 }

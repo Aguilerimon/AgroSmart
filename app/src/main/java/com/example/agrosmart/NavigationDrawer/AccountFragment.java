@@ -18,13 +18,13 @@ public class AccountFragment extends Fragment
 {
     String  name, email, phoneNumber, password;
 
-    /*public AccountFragment(String nombre, String correo, String phone, String pass)
+    public AccountFragment(String nombre, String correo, String phone, String pass)
     {
         this.name = nombre;
         this.email = correo;
         this.phoneNumber = phone;
         this.password = pass;
-    }*/
+    }
 
     @Nullable
     @Override
@@ -42,9 +42,6 @@ public class AccountFragment extends Fragment
         textViewTelefono.setText(phoneNumber);
         textViewPass.setText(password);
 
-
         return view;
     }
-
-
 }
