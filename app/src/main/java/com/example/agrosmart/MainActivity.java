@@ -18,14 +18,17 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.example.agrosmart.Drawer.AccountFragment;
-import com.example.agrosmart.Drawer.ConnectionsFragment;
-import com.example.agrosmart.Drawer.ContactFragment;
-import com.example.agrosmart.Drawer.HomeFragment;
-import com.example.agrosmart.Drawer.NotificationsFragment;
-import com.example.agrosmart.Drawer.PolicyFragment;
-import com.example.agrosmart.Drawer.SettingsFragment;
+import com.example.agrosmart.NavigationDrawer.AccountFragment;
+import com.example.agrosmart.NavigationDrawer.ConnectionsFragment;
+import com.example.agrosmart.NavigationDrawer.ContactFragment;
+import com.example.agrosmart.NavigationDrawer.HomeFragment;
+import com.example.agrosmart.NavigationDrawer.NotificationsFragment;
+import com.example.agrosmart.NavigationDrawer.PolicyFragment;
+import com.example.agrosmart.NavigationDrawer.SensorsFragment;
+import com.example.agrosmart.NavigationDrawer.SettingsFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -35,17 +38,13 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
-    ViewPager pager;
-    TabLayout mTabLayout;
     TabItem waterTab,windTab,groundTab;
-    PagerAdapter adapter;
     HomeFragment homeFragment;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     FrameLayout frameLayout;
     String nombre, correo, phone, password;
 
-    Fragment fragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -70,15 +69,10 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         txtNameLogin.setText(nombre);
         txtEmailLogin.setText(correo);
 
-        pager = findViewById(R.id.viewpager);
-        mTabLayout = findViewById(R.id.tablayout);
-        frameLayout = findViewById(R.id.fragmentContainer);
+        frameLayout = findViewById(R.id.nav_host_fragment);
 
-        waterTab = findViewById(R.id.tab_water_sensor);
-        windTab = findViewById(R.id.tab_wind_sensor);
-        groundTab = findViewById(R.id.tab_ground_sensor);
 
-        drawerLayout = findViewById(R.id.drawer);
+        drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -87,39 +81,23 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
 
-        pager.setVisibility(View.GONE);
-        mTabLayout.setVisibility(View.GONE);
-
         homeFragment = new HomeFragment();
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragmentContainer,homeFragment);
+        fragmentTransaction.add(R.id.nav_host_fragment,homeFragment);
         fragmentTransaction.commit();// add the fragment
+        showHome();
 
-        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,mTabLayout.getTabCount());
-        pager.setAdapter(adapter);
-
-        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onTabSelected(TabLayout.Tab tab)
+            public void onClick(View view)
             {
-                pager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
+                Snackbar.make(view, "ChatBot", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
-        pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-
-        showHome();
     }
 
     private void showHome()
@@ -127,9 +105,8 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         homeFragment = new HomeFragment();
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainer,homeFragment, homeFragment.getTag());
+        fragmentTransaction.replace(R.id.nav_host_fragment,homeFragment, homeFragment.getTag());
         fragmentTransaction.commit();// add the fragment
-        showDrawerFragments();
         homeStatus = true;
     }
 
@@ -143,40 +120,33 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         {
             case R.id.nav_home:
                 loadFragment(new HomeFragment());
-                showDrawerFragments();
                 break;
             case R.id.nav_notifications:
                 loadFragment(new NotificationsFragment());
-                showDrawerFragments();
+                homeStatus = false;
+                break;
+            case R.id.nav_sensors:
+                loadFragment(new SensorsFragment());
                 homeStatus = false;
                 break;
             case R.id.nav_connections:
                 loadFragment(new ConnectionsFragment());
-                showDrawerFragments();
                 homeStatus = false;
                 break;
             case R.id.nav_account:
                 loadFragment(new AccountFragment(nombre, correo, phone, password));
-                showDrawerFragments();
                 homeStatus = false;
                 break;
             case R.id.nav_policy:
                 loadFragment(new PolicyFragment());
-                showDrawerFragments();
                 homeStatus = false;
                 break;
             case R.id.nav_contact:
                 loadFragment(new ContactFragment());
-                showDrawerFragments();
                 homeStatus = false;
                 break;
             case R.id.nav_settings:
                 loadFragment(new SettingsFragment());
-                showDrawerFragments();
-                homeStatus = false;
-                break;
-            case R.id.nav_sensors:
-                showTabFragments();
                 homeStatus = false;
                 break;
             default: return false;
@@ -206,25 +176,12 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         }
     }
 
-    private void showDrawerFragments()
-    {
-        pager.setVisibility(View.GONE);
-        mTabLayout.setVisibility(View.GONE);
-        frameLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void showTabFragments()
-    {
-        pager.setVisibility(View.VISIBLE);
-        mTabLayout.setVisibility(View.VISIBLE);
-        frameLayout.setVisibility(View.GONE);
-    }
 
     private void loadFragment(Fragment newFragment)
     {
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainer,newFragment);
+        fragmentTransaction.replace(R.id.nav_host_fragment,newFragment);
         fragmentTransaction.commit();
     }
 

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources><!--          English              -->
+<resources>
+
+    <!--          English              -->
 
     <string name="app_name">AgroSmart</string>
 
@@ -131,5 +133,21 @@
     <string name="home_columnaTierra">Solid solutions(STD)</string>
     <string name="home_columnaAire">Sulfur Dioxide (SO2)</string>
     <string name="home_actual">Actual</string>
+
+    <string name="textViewContact">Contact</string>
+    <string name="title_account_settings">Account settings</string>
+    <string name="progress_dialog">Loading...</string>
+    <string name="recover_password">Recover password</string>
+    <string name="recover">Recover</string>
+    <string name="cancel_recover">Cancel</string>
+    <string name="email_sent">An email was sent</string>
+    <string name="message_dialog_recovery">Enter an email</string>
+
+    <string name="confirm_code">Confirmation code</string>
+    <string name="confirm_code_desc">Enter a sent code</string>
+    <string name="accept">Accept</string>
+    <string name="passed">Verified</string>
+    <string name="search">Search</string>
+
 
 </resources>

@@ -28,15 +28,11 @@
         android:layout_marginTop="60dp"
         android:layout_marginBottom="10dp">
 
-    <ScrollView
-        android:id="@+id/scrollViewNotificationsSettings"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="10dp"
         android:layout_marginStart="10dp"
@@ -60,11 +56,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:layout_marginStart="70dp">
 
             <TextView
                 android:id="@+id/textView34"
-                android:layout_width="190dp"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="16dp"
@@ -77,7 +73,7 @@
                 android:id="@+id/switch_sensorMeasurements"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="130dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintBottom_toTopOf="@+id/switch_conDis"
                 app:layout_constraintStart_toEndOf="@+id/textView34" />
@@ -89,14 +85,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginStart="70dp">
 
             <TextView
                 android:id="@+id/textView33"
-                android:layout_width="190dp"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/settings_notifi_conection"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -106,8 +102,8 @@
                 android:id="@+id/switch_conDis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="5dp"
                 app:layout_constraintBottom_toTopOf="@+id/switch_compOffers"
                 app:layout_constraintStart_toEndOf="@+id/textView33" />
 
@@ -118,14 +114,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginStart="70dp">
 
             <TextView
                 android:id="@+id/textView35"
-                android:layout_width="190dp"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/settings_notifi_ofer"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -135,8 +131,8 @@
                 android:id="@+id/switch_compOffers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="5dp"
                 app:layout_constraintBottom_toTopOf="@+id/switch_UnkLogins"
                 app:layout_constraintStart_toEndOf="@+id/textView35" />
 
@@ -147,15 +143,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="70dp">
 
         <TextView
             android:id="@+id/textView36"
-            android:layout_width="190dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:text="@string/settings_notifi_loginsin"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent" />
@@ -164,15 +160,14 @@
                 android:id="@+id/switch_UnkLogins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView36"
-                android:layout_marginBottom="40dp" />
+                android:layout_marginBottom="10dp" />
 
         </LinearLayout>
     </LinearLayout>
-    </ScrollView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

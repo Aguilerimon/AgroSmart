@@ -1,4 +1,5 @@
-<resources xmlns:tools="http://schemas.android.com/tools"><!--          Español              -->
+<resources>
+    <!--          Español              -->
 
     <string name="app_name">AgroSmart</string>
 
@@ -20,7 +21,7 @@
     <string name="text_connections">Conexiones</string>
     <string name="text_home">Últimos registros</string>
     <string name="text_settings">Configuración</string>
-    <string name="text_policy"><p><b><big>Politica de privacidad</big></b></p>\n\n
+    <string name="text_policy">
         <p align="justify">La presente Política de Privacidad
         establece los términos en que <b>AgroSmart</b>  usa y protege la información que
         es proporcionada por sus usuarios al momento de utilizar su sitio web. Esta compañía está
@@ -121,28 +122,28 @@
     <string name="next">Siguiente</string>
     <string name="previous">Anterior</string>
     <string name="title_activity_principal">Activity Principal</string>
-    <string name="navigation_drawer_open">Abrir menu navegacion</string>
-    <string name="navigation_drawer_close">Cerrar menu navegacion</string>
-    <string name="nav_header_desc">Cabecera navegacion</string>
-    <string name="action_settings">Configuracion</string>
+    <string name="navigation_drawer_open">Abrir menu navegación</string>
+    <string name="navigation_drawer_close">Cerrar menu navegación</string>
+    <string name="nav_header_desc">Cabecera navegación</string>
+    <string name="action_settings">Configuración</string>
 
-    <string name="text_titleTableConnections">Estado de conexion a internet</string>
-    <string name="text_connectionTable">Conexion</string>
+    <string name="text_titleTableConnections">Estado de conexión a internet</string>
+    <string name="text_connectionTable">Conexión</string>
     <string name="text_spaceTable">Espacio utilizado</string>
     <string name="text_warningTable">Advertencias</string>
-    <string name="text_logTable">Bitacora</string>
+    <string name="text_logTable">Bitácora</string>
     <string name="buttonReconnect">Reconectar</string>
 
-    <string name="settings_notifications">Configuracion de Notificaciones</string>
+    <string name="settings_notifications">Configuración de Notificaciones</string>
     <string name="settings_seconTitle">Notificaciones que recibes</string>
     <string name="settings_notifi_medicion">Mediciones de sensores</string>
-    <string name="settings_notifi_conection">Conexion/desconexion</string>
+    <string name="settings_notifi_conection">Conexión/desconexión</string>
     <string name="settings_notifi_ofer">Ofertas de la empresa</string>
-    <string name="settings_notifi_loginsin">Inicios de sesion desconocidos</string>
+    <string name="settings_notifi_loginsin">Inicios de sesión desconocidos</string>
 
     <string name="settings_copyBack">Copia/Respaldo</string>
-    <string name="settings_seconTitleCopy">Respaldo automatico</string>
-    <string name="settings_notifi_geneResp">Generar respaldos de informacion de manera automatica</string>
+    <string name="settings_seconTitleCopy">Respaldo automático</string>
+    <string name="settings_notifi_geneResp">Generar respaldos de información de manera automática</string>
 
     <string name="text_from">De:</string>
     <string name="text_subject">Asunto</string>
@@ -153,9 +154,7 @@
     <string name="email">Correo</string>
     <string name="phone">Teléfono</string>
     <string name="pswd">Contraseña</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
 
     <string name="settings_notifications_description">Habilitar o desabilitar notificaciones</string>
     <string name="settings_backup">Copia/respaldo</string>
@@ -165,27 +164,43 @@
 
     <string name="settings_security">Seguridad e inicio de sesión</string>
     <string name="settings_security_description">Cambia la contraseña y toma otras medidas para proteger tu cuenta</string>
-    <string name="settings_security_title1">Donde iniciaste sesión</string>
-    <string name="settings_security_title2">Inicio de sesion</string>
-    <string name="settings_security_title3">Autentificacion de dos pasos</string>
+    <string name="settings_security_title1">Dónde iniciaste sesión</string>
+    <string name="settings_security_title2">Inicio de sesión</string>
+    <string name="settings_security_title3">Autentificación de dos pasos</string>
     <string name="settings_security_title4">Notificaciones de acceso desconocido</string>
-    <string name="settings_security_description1">Cerrar sesion</string>
+    <string name="settings_security_description1">Cerrar sesión</string>
     <string name="settings_security_description2">Cambiar contraseña</string>
-    <string name="settings_security_description3">Usar autenticacion de dos pasos</string>
-    <string name="settings_security_description4">App de autenticacion</string>
+    <string name="settings_security_description3">Usar autenticación de dos pasos</string>
+    <string name="settings_security_description4">App de autenticación</string>
     <string name="settings_security_description5">Mensaje SMS</string>
-    <string name="settings_security_description6">Recibir alertas de inicio de sesion no autorizados</string>
+    <string name="settings_security_description6">Recibir alertas de inicio de sesión no autorizados</string>
 
     <string name="settings_information">Información</string>
-    <string name="settings_information_description">Version de aplicación</string>
+    <string name="settings_information_description">Versión de aplicación</string>
     <string name="settings_information_description2">1.0.0.1</string>
     <string name="settings_information_description3">Agro Smart y logotipos son propiedad de Agro Smart</string>
 
     <string name="home_columna1">Hora</string>
     <string name="home_columnaAgua">Ph</string>
-    <string name="home_columnaTierra">Solidos en solucion (STD)</string>
-    <string name="home_columnaAire">Dioxido de azufre (SO2)</string>
+    <string name="home_columnaTierra">Sólidos en solución (STD)</string>
+    <string name="home_columnaAire">Dióxido de azufre (SO2)</string>
     <string name="home_actual">Actual</string>
+    <string name="textViewContact">Contáctanos</string>
+    <string name="title_account_settings">Configuración de cuenta</string>
+
+    <string name="progress_dialog">Cargando...</string>
+    <string name="recover_password">Recuperar contraseña</string>
+    <string name="recover">Recuperar</string>
+    <string name="cancel_recover">Cancelar</string>
+    <string name="email_sent">Se ha enviado un correo</string>
+    <string name="message_dialog_recovery">Ingrese correo electrónico</string>
+
+    <string name="confirm_code">Código de confirmación</string>
+    <string name="confirm_code_desc">Ingrese código enviado</string>
+    <string name="accept">Aceptar</string>
+    <string name="passed">Código verificado</string>
+    <string name="search">Búsqueda</string>
+
 
 
 </resources>

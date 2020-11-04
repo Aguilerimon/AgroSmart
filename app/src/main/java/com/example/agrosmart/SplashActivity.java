@@ -1,12 +1,11 @@
 package com.example.agrosmart;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity
 {
@@ -15,7 +14,7 @@ public class SplashActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         mProgress = (ProgressBar) findViewById(R.id.splash_progress_bar);
@@ -40,7 +39,7 @@ public class SplashActivity extends AppCompatActivity
         {
             try
             {
-                Thread.sleep(40);
+                Thread.sleep(20);
                 mProgress.setProgress(i);
             }
             catch (Exception e)

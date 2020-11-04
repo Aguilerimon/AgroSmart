@@ -1,16 +1,19 @@
 package com.example.agrosmart;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -21,11 +24,11 @@ import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity
 {
-    ProgressBar progressBar;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
@@ -36,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity
         final EditText email = findViewById(R.id.edt_email);
         final EditText phone = findViewById(R.id.edt_phone);
         final EditText  password = findViewById(R.id.edt_password);
-        progressBar = findViewById(R.id.loading);
+
 
         btnRegister.setOnClickListener(new View.OnClickListener()
         {
@@ -47,6 +50,8 @@ public class RegisterActivity extends AppCompatActivity
                 String PhoneNumber = phone.getText().toString();
                 String Email = email.getText().toString();
                 String Password = password.getText().toString();
+                initProgressDialog();
+                showProgressDialog();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>()
                 {
@@ -61,19 +66,19 @@ public class RegisterActivity extends AppCompatActivity
 
                             if(successResponse == true)
                             {
-                                Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                                RegisterActivity.this.startActivity(intent);
-                                RegisterActivity.this.finish();
-                                Toast.makeText(RegisterActivity.this, R.string.register_success, Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                                showConfirmCode();
                             }
                             else
                             {
+                                progressDialog.dismiss();
                                 AlertDialog.Builder alert = new AlertDialog.Builder(RegisterActivity.this);
                                 alert.setMessage(R.string.register_error).setNegativeButton(R.string.retry, null).create().show();
                             }
                         } catch (JSONException e)
                         {
                             e.printStackTrace();
+                            progressDialog.dismiss();
                             Toast.makeText(RegisterActivity.this, R.string.register_error + ": " + e, Toast.LENGTH_LONG).show();
                         }
                     }
@@ -86,5 +91,46 @@ public class RegisterActivity extends AppCompatActivity
             }
         });
 
+    }
+
+    private void initProgressDialog()
+    {
+        this.progressDialog = new ProgressDialog(this);
+    }
+
+    private void showProgressDialog()
+    {
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage(getString(R.string.progress_dialog));
+        progressDialog.show();
+    }
+
+    private void showConfirmCode()
+    {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(RegisterActivity.this);
+        alertDialog.setTitle(getString(R.string.confirm_code));
+        alertDialog.setMessage(getString(R.string.confirm_code_desc));
+
+        final EditText input = new EditText(RegisterActivity.this);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        alertDialog.setView(input);
+
+        alertDialog.setPositiveButton(getString(R.string.accept),
+                new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        Toast.makeText(RegisterActivity.this, R.string.passed, Toast.LENGTH_LONG).show();
+                        dialog.dismiss();
+                        Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                        RegisterActivity.this.startActivity(intent);
+                        RegisterActivity.this.finish();
+                        Toast.makeText(RegisterActivity.this, R.string.register_success, Toast.LENGTH_SHORT).show();
+                    }
+                });
+        alertDialog.show();
     }
 }

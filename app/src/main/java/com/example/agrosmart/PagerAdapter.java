@@ -9,11 +9,11 @@ import com.example.agrosmart.Tab.GroundFragment;
 import com.example.agrosmart.Tab.WaterFragment;
 import com.example.agrosmart.Tab.WindFragment;
 
-public class PagerAdapter extends FragmentPagerAdapter
+public class  PagerAdapter extends FragmentPagerAdapter
 {
     private int tabsNumber;
 
-    public PagerAdapter(@NonNull FragmentManager fm, int behavior,int tabs)
+    public PagerAdapter(@NonNull FragmentManager fm, int behavior, int tabs)
     {
         super(fm, behavior);
         this.tabsNumber = tabs;
@@ -26,13 +26,17 @@ public class PagerAdapter extends FragmentPagerAdapter
         switch (position)
         {
             case 0:
-                return new WaterFragment();
+                WaterFragment waterFragment = new WaterFragment();
+                return waterFragment;
             case 1:
-                return new WindFragment();
+                WindFragment windFragment = new WindFragment();
+                return windFragment;
             case 2 :
-                return new GroundFragment();
+                GroundFragment groundFragment = new GroundFragment();
+                return groundFragment;
                 default: return null;
         }
+
     }
 
     @Override
