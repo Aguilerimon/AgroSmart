@@ -38,7 +38,11 @@
                 android:gravity="left"
                 android:textStyle="bold" />
 
-            <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,9 +54,16 @@
                 android:hint="@string/text_email"
                 android:inputType="textPersonName"
                 android:paddingLeft="5dp"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="40dp"
+            android:background="@android:color/transparent"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,7 +75,9 @@
                 android:textSize="18dp"
                 android:hint="@string/text_password"
                 android:inputType="textPassword"
-                android:paddingLeft="5dp" />
+                android:paddingLeft="5dp"
+            android:background="@android:color/transparent"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btn_ir_recuperar_contrasena"

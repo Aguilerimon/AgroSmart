@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "149347869857",
+    "firebase_url": "https://agrosmart-11d79.firebaseio.com",
+    "project_id": "agrosmart-11d79",
+    "storage_bucket": "agrosmart-11d79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149347869857:android:a08aa5d51f77699db6bce0",
+        "android_client_info": {
+          "package_name": "com.example.agrosmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149347869857-4arltifh6q6o6ove7d89uuggh0iru52u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBf1f9-HSzlxZcf8X-tajWCoIXf063iVY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149347869857-4arltifh6q6o6ove7d89uuggh0iru52u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

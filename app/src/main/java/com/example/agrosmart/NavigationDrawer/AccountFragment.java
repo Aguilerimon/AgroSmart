@@ -16,14 +16,13 @@ import com.example.agrosmart.R;
 
 public class AccountFragment extends Fragment
 {
-    String  name, email, phoneNumber, password;
+    String  name, email, phoneNumber;
 
-    public AccountFragment(String nombre, String correo, String phone, String pass)
+    public AccountFragment(String nombre, String correo, String phone)
     {
         this.name = nombre;
         this.email = correo;
         this.phoneNumber = phone;
-        this.password = pass;
     }
 
     @Nullable
@@ -35,12 +34,10 @@ public class AccountFragment extends Fragment
         TextView textViewNombre = view.findViewById(R.id.textViewNombre);
         TextView textViewCorreo = view.findViewById(R.id.textViewCorreo);
         TextView textViewTelefono = view.findViewById(R.id.textViewPhone);
-        TextView textViewPass = view.findViewById(R.id.textViewPass);
 
         textViewNombre.setText(name);
         textViewCorreo.setText(email);
         textViewTelefono.setText(phoneNumber);
-        textViewPass.setText(password);
 
         return view;
     }

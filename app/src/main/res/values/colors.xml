@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#18D129</color>
     <color name="colorPrimaryDark">#32d9cb</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#FF0000</color>
     <color name="colorGray">#6a888c</color>
     <color name="colorButton">#FA7702</color>
 </resources>

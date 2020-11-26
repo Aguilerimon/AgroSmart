@@ -25,6 +25,16 @@ public class SettingsFragment extends Fragment
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
+    String  name, email, phoneNumber, id;
+
+    public SettingsFragment(String id, String nombre, String correo, String phone)
+    {
+        this.id = id;
+        this.name = nombre;
+        this.email = correo;
+        this.phoneNumber = phone;
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
     {
@@ -37,6 +47,7 @@ public class SettingsFragment extends Fragment
         settingsInformation = root.findViewById(R.id.settings_information);
         settingsBackup = root.findViewById(R.id.settings_backup);
 
+
         settingsAccount.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -45,7 +56,7 @@ public class SettingsFragment extends Fragment
                 getFragmentManager().beginTransaction().
                         remove(getFragmentManager().findFragmentById(R.id.nav_host_fragment)).commit();
 
-                SettingsAccountFragment settingsAccountFragment = new SettingsAccountFragment();
+                SettingsAccountFragment settingsAccountFragment = new SettingsAccountFragment(id, name, email, phoneNumber);
                 fragmentManager = getFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.add(R.id.nav_host_fragment,settingsAccountFragment).addToBackStack(null);

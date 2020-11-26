@@ -2,25 +2,37 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.agrosmart">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_as_icon"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AgroSmart">
+        android:theme="@style/Theme.AgroSmart"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AgroSmart.NoActionBar"
-            android:configChanges="orientation|keyboardHidden"/>
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.AgroSmart.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
-            android:configChanges="orientation|keyboardHidden"/>
+            android:configChanges="orientation|keyboardHidden" />
         <activity
-            android:name=".LoginActivity" />
+            android:name=".RecoverPassCodeActivity"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".LoginCodeActivity"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".FingerprintActivity"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".RecoverPassActivity"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".SplashActivity"
             android:configChanges="orientation">

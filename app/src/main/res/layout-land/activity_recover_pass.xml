@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecoverPassActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConnections"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginEnd="54dp"
+                    app:srcCompat="@drawable/logo_as_icon" />
+
+                <LinearLayout
+                    android:id="@+id/field_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageView"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="25dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="@string/recover_pass"
+                        android:textColorHint="@color/black"
+                        android:textSize="35sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:backgroundTint="@android:color/darker_gray"
+                            android:ems="10"
+                            android:textSize="18sp"
+                            android:hint="@string/text_password"
+                            android:inputType="textPassword"
+                            android:background="@android:color/transparent"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_confirm_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:textSize="18sp"
+                            android:backgroundTint="@android:color/darker_gray"
+                            android:ems="10"
+                            android:hint="@string/text_confirm_password"
+                            android:inputType="textPassword"
+                            android:background="@android:color/transparent"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="10dp">
+
+                    <Button
+                        android:id="@+id/btn_accept"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:text="@string/accept"
+                        android:textColor="#FFF"
+                        android:textSize="18sp" />
+                    <Button
+                        android:id="@+id/cancel_register_code"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cancel_recover"
+                        android:background="@android:color/transparent"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:layout_marginTop="10dp"
+                        android:textSize="18sp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

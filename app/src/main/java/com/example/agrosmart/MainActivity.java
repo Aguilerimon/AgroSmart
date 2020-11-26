@@ -12,10 +12,13 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.agrosmart.NavigationDrawer.AccountFragment;
@@ -32,6 +35,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.zip.Inflater;
+
 
 public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener
 {
@@ -43,7 +48,8 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     FrameLayout frameLayout;
-    String nombre, correo, phone, password;
+    String nombre, correo, phone, password, user_id;
+    SearchView searchView;
 
 
     @Override
@@ -59,12 +65,15 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
         TextView txtNameLogin = mHeaderView.findViewById(R.id.txt_username);
         TextView txtEmailLogin = mHeaderView.findViewById(R.id.txt_user_mail);
+        searchView = findViewById(R.id.search_bar);
 
         Bundle datos = getIntent().getExtras();
         nombre = datos.getString("Name");
         correo = datos.getString("Email");
         phone = datos.getString("PhoneNumber");
         password = datos.getString("Password");
+        user_id = datos.getString("User_Id");
+
 
         txtNameLogin.setText(nombre);
         txtEmailLogin.setText(correo);
@@ -121,10 +130,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
             case R.id.nav_home:
                 loadFragment(new HomeFragment());
                 break;
-            case R.id.nav_notifications:
-                loadFragment(new NotificationsFragment());
-                homeStatus = false;
-                break;
             case R.id.nav_sensors:
                 loadFragment(new SensorsFragment());
                 homeStatus = false;
@@ -134,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                 homeStatus = false;
                 break;
             case R.id.nav_account:
-                loadFragment(new AccountFragment(nombre, correo, phone, password));
+                loadFragment(new AccountFragment(nombre, correo, phone));
                 homeStatus = false;
                 break;
             case R.id.nav_policy:
@@ -142,11 +147,11 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                 homeStatus = false;
                 break;
             case R.id.nav_contact:
-                loadFragment(new ContactFragment());
+                loadFragment(new ContactFragment(correo));
                 homeStatus = false;
                 break;
             case R.id.nav_settings:
-                loadFragment(new SettingsFragment());
+                loadFragment(new SettingsFragment(user_id, nombre, correo, phone));
                 homeStatus = false;
                 break;
             default: return false;
@@ -185,4 +190,31 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         fragmentTransaction.commit();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.main,menu);
+        return true;
+    }
+
+    boolean band = true;
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+
+        switch (item.getItemId())
+        {
+            case R.id.action_settings:
+                loadFragment(new SettingsFragment(user_id, nombre, correo, phone));
+                homeStatus = false;
+                break;
+            case R.id.action_notifications:
+                loadFragment(new NotificationsFragment());
+                homeStatus = false;
+                break;
+            default: return false;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

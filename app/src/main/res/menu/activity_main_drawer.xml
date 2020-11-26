@@ -8,10 +8,6 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/icon_home"
             android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_notifications"
-            android:icon="@drawable/icon_notifications"
-            android:title="@string/menu_notifications" />
     </group>
 
     <group android:id="@+id/group2" android:checkableBehavior="single">

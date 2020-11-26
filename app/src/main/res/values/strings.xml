@@ -195,12 +195,26 @@
     <string name="email_sent">Se ha enviado un correo</string>
     <string name="message_dialog_recovery">Ingrese correo electrónico</string>
 
-    <string name="confirm_code">Código de confirmación</string>
+    <string name="confirm_code">Verificación</string>
     <string name="confirm_code_desc">Ingrese código enviado</string>
     <string name="accept">Aceptar</string>
     <string name="passed">Código verificado</string>
     <string name="search">Búsqueda</string>
 
+    <string name="choose_mailer">"Elige App para enviar"</string>
+
+    <string name="empty_email">Email vacío!</string>
+    <string name="empty_password">Contraseña vacía!</string>
+    <string name="invalid_email">Email no válido!</string>
+    <string name="empty_phone">Teléfono vacío!</string>
+    <string name="empty_name">Nombre vacío!</string>
+    <string name="invalid_phone">Teléfono no válido!</string>
+    <string name="pass_dont_match">Contraseñas no coinciden!</string>
+    <string name="check_terms_register">No ha leído los términos!</string>
+    <string name="code_sent">Codigo enviado!</string>
+    <string name="recover_pass">Recuperación</string>
+
+    <string name="min_lenght">Debe contener al menos 8 caracteres</string>
 
 
 </resources>

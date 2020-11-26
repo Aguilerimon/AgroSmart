@@ -143,11 +143,26 @@
     <string name="email_sent">An email was sent</string>
     <string name="message_dialog_recovery">Enter an email</string>
 
-    <string name="confirm_code">Confirmation code</string>
+    <string name="confirm_code">Verification</string>
     <string name="confirm_code_desc">Enter a sent code</string>
     <string name="accept">Accept</string>
     <string name="passed">Verified</string>
     <string name="search">Search</string>
+
+    <string name="choose_mailer">"Choose App mailer"</string>
+
+    <string name="empty_email">Empty email!</string>
+    <string name="empty_password">Empty password!</string>
+    <string name="invalid_email">Invalid email!</string>
+    <string name="empty_phone">Empty phone!</string>
+    <string name="empty_name">Empty name!</string>
+    <string name="invalid_phone">Invalid phone!</string>
+    <string name="pass_dont_match">Passwords are different!</string>
+    <string name="check_terms_register">Read the terms first!</string>
+    <string name="code_sent">Code sent!</string>
+    <string name="recover_pass">Recover password</string>
+
+    <string name="min_lenght">Must have 8 characters minimum</string>
 
 
 </resources>
