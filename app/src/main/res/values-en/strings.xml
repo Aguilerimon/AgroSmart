@@ -23,7 +23,60 @@
     <string name="text_connections">Connections</string>
     <string name="text_home">Home fragment</string>
     <string name="text_settings">Settings</string>
-    <string name="text_policy">Terms fragment</string>
+    <string name="text_policy">
+        <p align="justify">This Privacy Policy
+        establishes the terms in which <b> AgroSmart </b> uses and protects the information that
+        is provided by your users when using your website. This company is
+        committed to the security of its users' data. When we ask you to fill out the
+        fields of personal information with which you can be identified, we do
+        ensuring that it will only be used in accordance with the terms of this document. But nevertheless
+        This Privacy Policy may change over time or be updated for what
+        We recommend and emphasize continually reviewing this page to ensure that you are
+        agree to such changes. </p> \ n \ n <b> Information that is collected </b> \ n \ n <p> Our App
+    may collect personal information such as: Name, contact information
+    such as your email address and telephone number. Likewise when necessary it may be
+    specific information required to process an order or make a delivery or
+    billing. </p> \ n \ n <b> Use of collected information </b> \ n \ n <p> Our application
+    uses the information in order to provide the best possible service,
+    particularly to keep a register of users, orders if applicable, and
+    improve our products and services. Emails may be sent
+    periodically through our site with special offers, new products and other
+    advertising information that we consider relevant to you or that may provide you with some
+    benefit, these emails will be sent to the address you provide and
+    they can be canceled at any time.</p>\n\n<p> <b> AgroSmart </b> is highly
+    committed to fulfill the commitment to keep your information secure. We use
+    the most advanced systems and we constantly update them to ensure that we do not
+    there is no unauthorized access. </p> \ n \ n <b> Cookies </b> \ n \ n <p> A cookie refers to
+    a file that is sent in order to request permission to
+    be stored on your computer, by accepting said file it is created and the cookie then serves
+    to have information regarding web traffic, and also facilitates future recurring ones.
+    Another function that cookies have is that with them the web can recognize you
+    individually and therefore provide you with the best personalized service on your website. </p> \ n \ n
+    <p> Our app uses cookies to identify the pages that are visited and their
+        frequency. This information is used only for statistical analysis and then the
+        information is permanently deleted. You can delete cookies at any
+        moment from your computer. However cookies help provide a better service
+        of the websites, you are not giving access to information from your computer or from you, unless
+        that you want it and provide it directly. You can accept or deny the use of
+        cookies, however most browsers accept cookies automatically as it serves
+        to have a better web service. Also you can change the settings of your
+        computer to decline cookies. If they are declined you may not be able to use some
+        of our services. </p> \ n \ n <b> Links to Third Parties </b> \ n \ n <p> This App may contain links
+    to other sites that may be of interest to you.Once
+    that you click on these links and leave our page, we no longer have control over
+    to the site to which it is redirected and therefore we are not responsible for the terms or
+    privacy or the protection of your data on those other third-party sites. Such sites
+    are subject to their own privacy policies for which it is recommended that the
+    check to confirm that you agree to these. </p> \ n \ n <b> Control of your information
+    personal </b> \ n \ n <p> At any time you can restrict the collection or use
+    of the personal information that is provided to our website. Every time you are
+    request to fill out a form, such as user registration, you can mark or unmark the
+    option to receive information by email. In case you marked the
+    option to receive our newsletter or advertising you can cancel it at any
+    moment. </p> \ n \ n <p> This company will not sell, transfer or distribute the information
+    personal data that is collected without your consent, unless required by a judge
+    with a court order. </p> \ n \ n <p> It reserves the right to change the terms of the
+    present Privacy Policy at any time. </p></string>
     <string name="text_notifications">Notifications</string>
     <string name="text_account">Account fragment</string>
 
