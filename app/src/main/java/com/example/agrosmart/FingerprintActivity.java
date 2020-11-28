@@ -47,18 +47,14 @@ public class FingerprintActivity extends AppCompatActivity
         switch (biometricManager.canAuthenticate())
         {
             case BiometricManager.BIOMETRIC_SUCCESS:
-                Toast.makeText(FingerprintActivity.this, "You can use the fingerprint sensor to login", Toast.LENGTH_LONG).show();
                 break;
             case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
-                Toast.makeText(FingerprintActivity.this, "The device don´t have a fingerprint sensor", Toast.LENGTH_LONG).show();
                 goToCodePhone();
                 break;
             case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
-                Toast.makeText(FingerprintActivity.this, "The biometric sensor is currently unavailable", Toast.LENGTH_LONG).show();
                 goToCodePhone();
                 break;
             case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
-                Toast.makeText(FingerprintActivity.this, "Your device don´t hace any fingerprint saved, please check your securty settings", Toast.LENGTH_LONG).show();
                 goToCodePhone();
                 break;
         }
@@ -103,8 +99,8 @@ public class FingerprintActivity extends AppCompatActivity
 
         final BiometricPrompt.PromptInfo promptInfo = new  BiometricPrompt.PromptInfo.Builder()
                 .setTitle("Login")
-                .setDescription("User your fingerprint to login to your app")
-                .setNegativeButtonText("Cancel")
+                .setDescription(getString(R.string.biometric_success))
+                .setNegativeButtonText(getString(R.string.cancel_recover))
                 .build();
 
         btnAccept.setOnClickListener(new View.OnClickListener()

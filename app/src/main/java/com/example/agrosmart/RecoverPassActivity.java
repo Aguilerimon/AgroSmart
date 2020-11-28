@@ -83,7 +83,7 @@ public class RecoverPassActivity extends AppCompatActivity
     public void editPasswordResponse()
     {
         String password = edtPass.getText().toString();
-        Toast.makeText(RecoverPassActivity.this, "Telefono recibido: " + phoneWithoutSpace + "pwd: " + password, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(RecoverPassActivity.this, "Telefono recibido: " + phoneWithoutSpace + "pwd: " + password, Toast.LENGTH_SHORT).show();
 
 
         initProgressDialog();
@@ -105,19 +105,19 @@ public class RecoverPassActivity extends AppCompatActivity
                         progressDialog.dismiss();
                         Intent intent = new Intent(RecoverPassActivity.this, LoginActivity.class);
                         startActivity(intent);
-                        Toast.makeText(RecoverPassActivity.this, "Contraseña recuperada", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RecoverPassActivity.this, R.string.pass_recovered, Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
                         progressDialog.dismiss();
                         AlertDialog.Builder alert = new AlertDialog.Builder(RecoverPassActivity.this);
-                        alert.setMessage(R.string.register_error).setNegativeButton(R.string.retry, null).create().show();
+                        alert.setMessage(R.string.recover_error).setNegativeButton(R.string.retry, null).create().show();
                     }
                 } catch (JSONException e)
                 {
                     e.printStackTrace();
                     progressDialog.dismiss();
-                    Toast.makeText(RecoverPassActivity.this, R.string.register_error + ": " + e, Toast.LENGTH_LONG).show();
+                    Toast.makeText(RecoverPassActivity.this, R.string.recover_error + ": " + e, Toast.LENGTH_LONG).show();
                 }
             }
 

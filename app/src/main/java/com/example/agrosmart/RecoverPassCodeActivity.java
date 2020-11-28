@@ -79,7 +79,7 @@ public class RecoverPassCodeActivity extends AppCompatActivity
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e)
             {
-                Toast.makeText(RecoverPassCodeActivity.this, "Numero de telefono no valido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecoverPassCodeActivity.this, R.string.invalid_phone_number, Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }
 
@@ -96,7 +96,7 @@ public class RecoverPassCodeActivity extends AppCompatActivity
                 linearLayoutCode.setVisibility(View.VISIBLE);
 
                 progressDialog.dismiss();
-                Toast.makeText(RecoverPassCodeActivity.this, "Codigo de verificacion  enviado!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecoverPassCodeActivity.this, R.string.code_sent, Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -110,7 +110,7 @@ public class RecoverPassCodeActivity extends AppCompatActivity
                     String verificationCode = code.getText().toString();
                     if(verificationCode.equals(""))
                     {
-                        Toast.makeText(RecoverPassCodeActivity.this, "Ingresa codigo de verificacion", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RecoverPassCodeActivity.this, R.string.insert_code, Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
@@ -168,7 +168,7 @@ public class RecoverPassCodeActivity extends AppCompatActivity
             verificationCode = code.getText().toString();
             if(verificationCode.equals(""))
             {
-                Toast.makeText(RecoverPassCodeActivity.this, "Ingresa codigo de verificacion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecoverPassCodeActivity.this, R.string.insert_code, Toast.LENGTH_SHORT).show();
             }
             else
             {
@@ -197,7 +197,7 @@ public class RecoverPassCodeActivity extends AppCompatActivity
             }
             else
             {
-                Toast.makeText(RecoverPassCodeActivity.this, "Ingrese un numero de telefono valido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecoverPassCodeActivity.this, R.string.invalid_phone_number, Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -225,7 +225,6 @@ public class RecoverPassCodeActivity extends AppCompatActivity
                         if (task.isSuccessful())
                         {
                             progressDialog.dismiss();
-                            Toast.makeText(RecoverPassCodeActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RecoverPassCodeActivity.this, RecoverPassActivity.class);
                             intent.putExtra("Phone",phone.getText().toString());
                             RecoverPassCodeActivity.this.startActivity(intent);

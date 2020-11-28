@@ -79,45 +79,6 @@ public class LoginActivity extends AppCompatActivity
         });
     }
 
-    /*private void showRecoveryPasswordDialog()
-    {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this);
-        alertDialog.setTitle(getString(R.string.recover_password));
-        alertDialog.setMessage(getString(R.string.message_dialog_recovery));
-
-        final EditText input = new EditText(LoginActivity.this);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        input.setLayoutParams(lp);
-        alertDialog.setView(input);
-
-        alertDialog.setPositiveButton(getString(R.string.recover),
-                new DialogInterface.OnClickListener()
-                {
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        if(input.getText().toString().isEmpty())
-                            input.setError(getString(R.string.empty_email));
-                        else
-                        {
-                            Toast.makeText(LoginActivity.this, R.string.email_sent, Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
-                        }
-                    }
-                });
-
-        alertDialog.setNegativeButton(getString(R.string.cancel_recover),
-                new DialogInterface.OnClickListener()
-                {
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        dialog.cancel();
-                    }
-                });
-
-        alertDialog.show();
-    }*/
 
     private void initProgressDialog()
     {

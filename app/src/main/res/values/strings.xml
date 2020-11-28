@@ -216,5 +216,13 @@
 
     <string name="min_lenght">Debe contener al menos 8 caracteres</string>
 
+    <string name="pass_recovered">Contraseña recuperada!</string>
+    <string name="recover_error">Error en recuperar contraseña!</string>
+    <string name="invalid_phone_number">Número de teléfono inválido!</string>
+    <string name="insert_code">Ingrese código de verificación enviado</string>
+
+    <string name="biometric_success">Puede usar huella digital para iniciar sesión</string>
+
+
 
 </resources>

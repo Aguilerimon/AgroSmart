@@ -122,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e)
             {
-                Toast.makeText(RegisterActivity.this, "Numero de telefono no valido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, R.string.invalid_phone_number, Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }
 
@@ -139,7 +139,7 @@ public class RegisterActivity extends AppCompatActivity
                 linearLayoutCode.setVisibility(View.VISIBLE);
 
                 progressDialog.dismiss();
-                Toast.makeText(RegisterActivity.this, "Codigo de verificacion  enviado!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, R.string.code_sent, Toast.LENGTH_SHORT).show();
 
             }
         };
@@ -154,7 +154,7 @@ public class RegisterActivity extends AppCompatActivity
                     String verificationCode = code.getText().toString();
                     if(verificationCode.equals(""))
                     {
-                        Toast.makeText(RegisterActivity.this, "Ingresa codigo de verificacion", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, R.string.insert_code, Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
@@ -232,7 +232,6 @@ public class RegisterActivity extends AppCompatActivity
                         if (task.isSuccessful())
                         {
                             progressDialog.dismiss();
-                            Toast.makeText(RegisterActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                             registerResponse();
                         }
                         else
@@ -270,7 +269,7 @@ public class RegisterActivity extends AppCompatActivity
             String verificationCode = code.getText().toString();
             if(verificationCode.equals(""))
             {
-                Toast.makeText(RegisterActivity.this, "Ingresa codigo de verificacion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, R.string.insert_code, Toast.LENGTH_SHORT).show();
             }
             else
             {
@@ -299,7 +298,7 @@ public class RegisterActivity extends AppCompatActivity
             }
             else
             {
-                Toast.makeText(RegisterActivity.this, "Ingrese un numero de telefono valido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, R.string.invalid_phone_number, Toast.LENGTH_SHORT).show();
             }
         }
     }

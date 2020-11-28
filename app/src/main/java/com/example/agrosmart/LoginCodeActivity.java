@@ -105,7 +105,7 @@ public class LoginCodeActivity extends AppCompatActivity
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e)
             {
-                Toast.makeText(LoginCodeActivity.this, "Numero de telefono no valido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginCodeActivity.this, R.string.invalid_phone_number, Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }
 
@@ -122,7 +122,7 @@ public class LoginCodeActivity extends AppCompatActivity
                 linearLayoutCode.setVisibility(View.VISIBLE);
 
                 progressDialog.dismiss();
-                Toast.makeText(LoginCodeActivity.this, "Codigo de verificacion  enviado!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginCodeActivity.this, R.string.code_sent, Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -136,7 +136,7 @@ public class LoginCodeActivity extends AppCompatActivity
                     String verificationCode = code.getText().toString();
                     if(verificationCode.equals(""))
                     {
-                        Toast.makeText(LoginCodeActivity.this, "Ingresa codigo de verificacion", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginCodeActivity.this, R.string.insert_code, Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
@@ -194,7 +194,7 @@ public class LoginCodeActivity extends AppCompatActivity
             verificationCode = code.getText().toString();
             if(verificationCode.equals(""))
             {
-                Toast.makeText(LoginCodeActivity.this, "Ingresa codigo de verificacion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginCodeActivity.this, R.string.insert_code, Toast.LENGTH_SHORT).show();
             }
             else
             {
@@ -223,7 +223,7 @@ public class LoginCodeActivity extends AppCompatActivity
             }
             else
             {
-                Toast.makeText(LoginCodeActivity.this, "Ingrese un numero de telefono valido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginCodeActivity.this, R.string.invalid_phone_number, Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -251,7 +251,6 @@ public class LoginCodeActivity extends AppCompatActivity
                         if (task.isSuccessful())
                         {
                             progressDialog.dismiss();
-                            Toast.makeText(LoginCodeActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginCodeActivity.this, MainActivity.class);
                             intent.putExtra("Name",nombre);
                             intent.putExtra("Email", correo);

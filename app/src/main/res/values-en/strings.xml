@@ -164,5 +164,12 @@
 
     <string name="min_lenght">Must have 8 characters minimum</string>
 
+    <string name="pass_recovered">Password recovered!</string>
+    <string name="recover_error">Recover password error!</string>
+    <string name="invalid_phone_number">Invalid phone number!</string>
+    <string name="insert_code">Enter sent code</string>
+
+    <string name="biometric_success">You can use the fingerprint sensor to login</string>
+
 
 </resources>
