@@ -10,7 +10,7 @@ import java.util.Map;
 public class RecoverPassRequest extends StringRequest
 {
 
-    private static final String recoverPasswordRequest_URL = "https://www.hyrulestoreita.com/agrosmart/UpdatePass.php";
+    private static final String recoverPasswordRequest_URL = "http://agrosmartamm.000webhostapp.com/agrosmart/UpdatePass.php";
     private Map<String, String> params;
 
     public RecoverPassRequest(String PhoneNumber, String Pass, Response.Listener<String> listener)

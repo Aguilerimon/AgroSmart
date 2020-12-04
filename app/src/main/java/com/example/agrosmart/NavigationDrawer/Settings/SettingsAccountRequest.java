@@ -12,7 +12,7 @@ import java.util.Map;
 public class SettingsAccountRequest extends StringRequest
 {
 
-    private static final String settingsAccountRequest_URL = "https://www.hyrulestoreita.com/agrosmart/UpdateInfo.php";
+    private static final String settingsAccountRequest_URL = "http://agrosmartamm.000webhostapp.com/agrosmart/UpdateInfo.php";
     private Map<String, String> params;
 
     public SettingsAccountRequest(String Id, String Name, String PhoneNumber, String Email, Response.Listener<String> listener)
