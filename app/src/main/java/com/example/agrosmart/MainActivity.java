@@ -251,6 +251,11 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                try {
+                    cargarTabla(s);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -272,6 +277,11 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         }
         GetJSON getJSON = new GetJSON();
         getJSON.execute();
+    }
+
+    private void cargarTabla(String json) throws JSONException{
+        JSONObject jsonObject = new JSONObject(json);
+        //Llena la tabla
     }
 
 
