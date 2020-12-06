@@ -92,21 +92,14 @@
 
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
                 android:text="@string/btn_login"
                 android:textColor="#FFF"
                 android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/btnLoginGoogle"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_google"
-                android:textColor="#FFF"
-                android:textSize="18sp"
-                android:drawableLeft="@drawable/icon_google"/>
+          >
         </LinearLayout>
 
             <Button
