@@ -105,7 +105,8 @@ public class LoginCodeActivity extends AppCompatActivity
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e)
             {
-                Toast.makeText(LoginCodeActivity.this, R.string.invalid_phone_number, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginCodeActivity.this, R.string.invalid_phone_number, Toast.LENGTH_LONG).show();
+
                 progressDialog.dismiss();
             }
 
@@ -207,6 +208,7 @@ public class LoginCodeActivity extends AppCompatActivity
         else
         {
             phoneNumber = ccp.getFullNumberWithPlus();
+
             if(!phoneNumber.equals(""))
             {
                 initProgressDialog();
@@ -224,6 +226,7 @@ public class LoginCodeActivity extends AppCompatActivity
             else
             {
                 Toast.makeText(LoginCodeActivity.this, R.string.invalid_phone_number, Toast.LENGTH_SHORT).show();
+
             }
         }
     }
