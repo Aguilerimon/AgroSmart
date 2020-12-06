@@ -111,14 +111,14 @@
                     android:layout_margin="10dp">
 
                     <TextView
-                        android:id="@+id/text6"
+                        android:id="@+id/Tb_Agua_Hora1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="12:00"
                         android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/texttext_home_info_grou2"
+                        android:id="@+id/Tb_Agua_Valor1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -131,17 +131,17 @@
                     android:layout_margin="10dp">
 
                     <TextView
-                        android:id="@+id/text7"
+                        android:id="@+id/Tb_Agua_Hora2"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="11:30"
                         android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/text_home_info_grou3"
+                        android:id="@+id/Tb_Agua_Valor2"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:textAlignment="center" />
                 </TableRow>
 
@@ -151,14 +151,14 @@
                     android:layout_margin="10dp">
 
                     <TextView
-                        android:id="@+id/text8"
+                        android:id="@+id/Tb_Agua_Hora3"
                         android:layout_width="183dp"
                         android:layout_height="wrap_content"
                         android:text="11:00"
                         android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/text_home_info_grou4"
+                        android:id="@+id/Tb_Agua_Valor3"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -243,14 +243,14 @@
                     android:layout_margin="10dp">
 
                     <TextView
-                        android:id="@+id/text2"
+                        android:id="@+id/Tb_Tierra_Hora1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="12:00"
                         android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/text_home_info_water2"
+                        android:id="@+id/Tb_Tierra_Valor1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -263,17 +263,17 @@
                     android:layout_margin="10dp">
 
                     <TextView
-                        android:id="@+id/text3"
+                        android:id="@+id/Tb_Tierra_Hora2"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="11:30"
                         android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/text_home_info_water3"
+                        android:id="@+id/Tb_Tierra_Valor2"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:textAlignment="center" />
                 </TableRow>
 
@@ -283,14 +283,14 @@
                     android:layout_margin="10dp">
 
                     <TextView
-                        android:id="@+id/text4"
+                        android:id="@+id/Tb_Tierra_Hora3"
                         android:layout_width="183dp"
                         android:layout_height="wrap_content"
                         android:text="11:00"
                         android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/text_home_info_water4"
+                        android:id="@+id/Tb_Tierra_Valor3"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
