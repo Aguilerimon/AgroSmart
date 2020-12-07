@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -36,10 +37,17 @@ import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.hbb20.CountryCodePicker;
 
+import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
-public class RegisterActivity extends AppCompatActivity
+import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.SecretKeySpec;
+
+  public class RegisterActivity extends AppCompatActivity
 {
     ProgressDialog progressDialog;
     Button btnRegister, btnAccept, btnCancelRegister, btnCancelCode;
@@ -51,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private FirebaseAuth mAuth;
     private String mVerificactionId;
+    private String passEnc;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
 
     @Override
@@ -262,6 +271,25 @@ public class RegisterActivity extends AppCompatActivity
 
     }
 
+    public String encriptarPass(String Password) throws Exception {
+        SecretKeySpec secretKey = generateKey(Password);
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        byte[] datosEncriptadosBytes = cipher.doFinal(Password.getBytes());
+        String datosEncriptadosString = Base64.encodeToString(datosEncriptadosBytes, Base64.DEFAULT);
+        return datosEncriptadosString;
+        //String encodedKey = Base64.encodeToString(secretKey.getEncoded(), Base64.DEFAULT);
+        //return encodedKey;
+    }
+
+    private SecretKeySpec generateKey(String password) throws Exception{
+        MessageDigest sha = MessageDigest.getInstance("SHA-256");
+        byte[] key = password.getBytes("UTF-8");
+        key = sha.digest(key);
+        SecretKeySpec secretKey = new SecretKeySpec(key, "AES");
+        return secretKey;
+    }
+
     public void sendPhoneCode()
     {
         if(checker.equals("Code Sent"))
@@ -305,51 +333,57 @@ public class RegisterActivity extends AppCompatActivity
 
     public void registerResponse()
     {
-        String Name = name.getText().toString();
-        String PhoneNumber = phone.getText().toString();
-        String Email = email.getText().toString();
-        String Password = password.getText().toString();
-        initProgressDialog();
-        showProgressDialog();
+        try {
+            String Name = name.getText().toString();
+            String PhoneNumber = phone.getText().toString();
+            String Email = email.getText().toString();
+            String Password = encriptarPass(password.getText().toString());
 
-        Response.Listener<String> responseListener = new Response.Listener<String>()
-        {
-            @Override
-            public void onResponse(String response)
+            initProgressDialog();
+            showProgressDialog();
+
+            Response.Listener<String> responseListener = new Response.Listener<String>()
             {
-                try
+                @Override
+                public void onResponse(String response)
                 {
-                    JSONObject jsonResponse = new JSONObject(response);
-
-                    boolean successResponse = jsonResponse.getBoolean("success");
-
-                    if(successResponse == true)
+                    try
                     {
-                        progressDialog.dismiss();
-                        Toast.makeText(RegisterActivity.this, R.string.passed, Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                        RegisterActivity.this.startActivity(intent);
-                        RegisterActivity.this.finish();
-                        Toast.makeText(RegisterActivity.this, R.string.register_success, Toast.LENGTH_SHORT).show();
-                    }
-                    else
+                        JSONObject jsonResponse = new JSONObject(response);
+
+                        boolean successResponse = jsonResponse.getBoolean("success");
+
+                        if(successResponse == true)
+                        {
+                            progressDialog.dismiss();
+                            Toast.makeText(RegisterActivity.this, R.string.passed, Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                            RegisterActivity.this.startActivity(intent);
+                            RegisterActivity.this.finish();
+                            Toast.makeText(RegisterActivity.this, R.string.register_success, Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            progressDialog.dismiss();
+                            AlertDialog.Builder alert = new AlertDialog.Builder(RegisterActivity.this);
+                            alert.setMessage(R.string.register_error).setNegativeButton(R.string.retry, null).create().show();
+                        }
+                    } catch (JSONException e)
                     {
+                        e.printStackTrace();
                         progressDialog.dismiss();
-                        AlertDialog.Builder alert = new AlertDialog.Builder(RegisterActivity.this);
-                        alert.setMessage(R.string.register_error).setNegativeButton(R.string.retry, null).create().show();
+                        Toast.makeText(RegisterActivity.this, R.string.register_error + ": " + e, Toast.LENGTH_LONG).show();
                     }
-                } catch (JSONException e)
-                {
-                    e.printStackTrace();
-                    progressDialog.dismiss();
-                    Toast.makeText(RegisterActivity.this, R.string.register_error + ": " + e, Toast.LENGTH_LONG).show();
                 }
-            }
 
-        };
+            };
 
-        RegisterRequest registerResponse = new RegisterRequest(Name,PhoneNumber,Email,Password,responseListener);
-        RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-        queue.add(registerResponse);
+
+            RegisterRequest registerResponse = new RegisterRequest(Name,PhoneNumber,Email,Password,responseListener);
+            RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+            queue.add(registerResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

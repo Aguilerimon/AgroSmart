@@ -3,6 +3,8 @@ package com.example.agrosmart;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +20,11 @@ import com.example.agrosmart.NavigationDrawer.Settings.SettingsAccountRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.security.MessageDigest;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 
 public class RecoverPassActivity extends AppCompatActivity
 {
@@ -66,6 +73,25 @@ public class RecoverPassActivity extends AppCompatActivity
         });
     }
 
+    public String encriptarPass(String Password) throws Exception {
+        SecretKeySpec secretKey = generateKey(Password);
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        byte[] datosEncriptadosBytes = cipher.doFinal(Password.getBytes());
+        String datosEncriptadosString = Base64.encodeToString(datosEncriptadosBytes, Base64.DEFAULT);
+        return datosEncriptadosString;
+        //String encodedKey = Base64.encodeToString(secretKey.getEncoded(), Base64.DEFAULT);
+        //return encodedKey;
+    }
+
+    private SecretKeySpec generateKey(String password) throws Exception{
+        MessageDigest sha = MessageDigest.getInstance("SHA-256");
+        byte[] key = password.getBytes("UTF-8");
+        key = sha.digest(key);
+        SecretKeySpec secretKey = new SecretKeySpec(key, "AES");
+        return secretKey;
+    }
+
     public void validateEditFields()
     {
         if(edtPass.getText().toString().isEmpty())
@@ -82,50 +108,59 @@ public class RecoverPassActivity extends AppCompatActivity
 
     public void editPasswordResponse()
     {
-        String password = edtPass.getText().toString();
-        //Toast.makeText(RecoverPassActivity.this, "Telefono recibido: " + phoneWithoutSpace + "pwd: " + password, Toast.LENGTH_SHORT).show();
+        try {
+            String passuser = edtPass.getText().toString();
+            String password = encriptarPass(edtPass.getText().toString());
 
+            Log.d("pass", String.valueOf(password));
 
-        initProgressDialog();
-        showProgressDialog();
+            Log.d("tel", String.valueOf(phone));
 
-        Response.Listener<String> responseListener = new Response.Listener<String>()
-        {
-            @Override
-            public void onResponse(String response)
+            //Toast.makeText(RecoverPassActivity.this, "Telefono recibido: " + phoneWithoutSpace + "pwd: " + password, Toast.LENGTH_SHORT).show();
+
+            initProgressDialog();
+            showProgressDialog();
+
+            Response.Listener<String> responseListener = new Response.Listener<String>()
             {
-                try
+                @Override
+                public void onResponse(String response)
                 {
-                    JSONObject jsonResponse = new JSONObject(response);
-
-                    boolean successResponse = jsonResponse.getBoolean("success");
-
-                    if(successResponse == true)
+                    try
                     {
-                        progressDialog.dismiss();
-                        Intent intent = new Intent(RecoverPassActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                        Toast.makeText(RecoverPassActivity.this, R.string.pass_recovered, Toast.LENGTH_SHORT).show();
-                    }
-                    else
+                        JSONObject jsonResponse = new JSONObject(response);
+
+                        boolean successResponse = jsonResponse.getBoolean("success");
+
+                        if(successResponse == true)
+                        {
+                            progressDialog.dismiss();
+                            Intent intent = new Intent(RecoverPassActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(RecoverPassActivity.this, R.string.pass_recovered, Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            progressDialog.dismiss();
+                            AlertDialog.Builder alert = new AlertDialog.Builder(RecoverPassActivity.this);
+                            alert.setMessage(R.string.recover_error).setNegativeButton(R.string.retry, null).create().show();
+                        }
+                    } catch (JSONException e)
                     {
+                        e.printStackTrace();
                         progressDialog.dismiss();
-                        AlertDialog.Builder alert = new AlertDialog.Builder(RecoverPassActivity.this);
-                        alert.setMessage(R.string.recover_error).setNegativeButton(R.string.retry, null).create().show();
+                        Toast.makeText(RecoverPassActivity.this, R.string.recover_error + ": " + e, Toast.LENGTH_LONG).show();
                     }
-                } catch (JSONException e)
-                {
-                    e.printStackTrace();
-                    progressDialog.dismiss();
-                    Toast.makeText(RecoverPassActivity.this, R.string.recover_error + ": " + e, Toast.LENGTH_LONG).show();
                 }
-            }
 
-        };
+            };
 
-        RecoverPassRequest recoverPassRequest = new RecoverPassRequest(phoneWithoutSpace, password,responseListener);
-        RequestQueue queue = Volley.newRequestQueue(RecoverPassActivity.this);
-        queue.add(recoverPassRequest);
+            RecoverPassRequest recoverPassRequest = new RecoverPassRequest(phone, password,responseListener);
+            RequestQueue queue = Volley.newRequestQueue(RecoverPassActivity.this);
+            queue.add(recoverPassRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void initProgressDialog()

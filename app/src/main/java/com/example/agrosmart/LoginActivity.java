@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Base64;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +27,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.MessageDigest;
 import java.util.regex.Pattern;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 
 public class LoginActivity extends AppCompatActivity
 {
@@ -93,6 +99,24 @@ public class LoginActivity extends AppCompatActivity
         progressDialog.show();
     }
 
+    public String desencriptarPass(String passwordUser, String passwordBD) throws Exception{
+        SecretKeySpec secretKey = generateKey(passwordUser);
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.DECRYPT_MODE, secretKey);
+        byte[] datosDescoficados = Base64.decode(passwordBD, Base64.DEFAULT);
+        byte[] datosDesencriptadosByte = cipher.doFinal(datosDescoficados);
+        String datosDesencriptadosString = new String(datosDesencriptadosByte);
+        return datosDesencriptadosString;
+    }
+
+    private SecretKeySpec generateKey(String password) throws Exception{
+        MessageDigest sha = MessageDigest.getInstance("SHA-256");
+        byte[] key = password.getBytes("UTF-8");
+        key = sha.digest(key);
+        SecretKeySpec secretKey = new SecretKeySpec(key, "AES");
+        return secretKey;
+    }
+
     public void validateLoginFields()
     {
         if(email.getText().toString().isEmpty())
@@ -118,23 +142,32 @@ public class LoginActivity extends AppCompatActivity
 
                         if(successResponse == true)
                         {
-                            progressDialog.dismiss();
-                            Toast.makeText(LoginActivity.this, R.string.login_success, Toast.LENGTH_SHORT).show();
-                            String Name = jsonResponse.getString("Name");
-                            String Email = jsonResponse.getString("Email");
-                            String Phone = jsonResponse.getString("PhoneNumber");
-                            String Pass = jsonResponse.getString("Password");
-                            String User_Id = jsonResponse.getString("User_Id");
+                            try {
+                                progressDialog.dismiss();
+                                String Name = jsonResponse.getString("Name");
+                                String Email = jsonResponse.getString("Email");
+                                String Phone = jsonResponse.getString("PhoneNumber");
+                                String Pass = jsonResponse.getString("Password");
+                                String User_Id = jsonResponse.getString("User_Id");
 
-                            Intent intent = new Intent(LoginActivity.this, FingerprintActivity.class);
-                            intent.putExtra("Name",Name);
-                            intent.putExtra("Email", Email);
-                            intent.putExtra("PhoneNumber", Phone);
-                            intent.putExtra("Password", Pass);
-                            intent.putExtra("User_Id", User_Id);
+                                String PassDecrypt = desencriptarPass(Password, Pass);
 
-                            LoginActivity.this.startActivity(intent);
+                                if (PassDecrypt.equals(Password)){
+                                    Toast.makeText(LoginActivity.this, R.string.login_success, Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(LoginActivity.this, FingerprintActivity.class);
+                                    intent.putExtra("Name",Name);
+                                    intent.putExtra("Email", Email);
+                                    intent.putExtra("PhoneNumber", Phone);
+                                    intent.putExtra("Password", Pass);
+                                    intent.putExtra("User_Id", User_Id);
 
+                                    LoginActivity.this.startActivity(intent);
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                progressDialog.dismiss();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+                                alert.setMessage(R.string.login_error).setNegativeButton(R.string.retry, null).create().show();                            }
                         }
                         else
                         {
