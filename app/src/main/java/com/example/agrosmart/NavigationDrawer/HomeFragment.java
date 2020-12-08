@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.example.agrosmart.FingerprintActivity;
 import com.example.agrosmart.MainActivity;
 import com.example.agrosmart.R;
 
@@ -33,7 +34,7 @@ public class HomeFragment extends Fragment
 {
     TextView aguaHora1, aguaValor1, aguaHora2, aguaValor2, aguaHora3, aguaValor3;
     TextView tierraHora1, tierraValor1, tierraHora2, tierraValor2, tierraHora3, tierraValor3;
-    public static Bundle datos = new Bundle();
+    Bundle datos = FingerprintActivity.bundle;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,

@@ -36,7 +36,7 @@ public class FingerprintActivity extends AppCompatActivity
 
     String nombre, correo, phone, password, user_id;
     Button btnSwitchVer, btnAccept;
-    Bundle bundle = new Bundle();
+    public static Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,8 +44,8 @@ public class FingerprintActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         //Obtener JSON de la DB
-        getJSON("http://agrosmartamm.000webhostapp.com/agrosmart/getSensor.php");
-
+        getJSON("http://agrosmartamm.000webhostapp.com/agrosmart/getSensor.php", "1");
+        getJSON("http://agrosmartamm.000webhostapp.com/agrosmart/getStatus.php", "2");
         setContentView(R.layout.activity_fingerprint);
 
         btnSwitchVer = findViewById(R.id.btn_switch_ver);
@@ -131,8 +131,7 @@ public class FingerprintActivity extends AppCompatActivity
         });
         biometricPrompt.authenticate(promptInfo);
     }
-    public void goToCodePhone()
-    {
+    public void goToCodePhone()    {
         Bundle datos = getIntent().getExtras();
         nombre = datos.getString("Name");
         correo = datos.getString("Email");
@@ -151,7 +150,7 @@ public class FingerprintActivity extends AppCompatActivity
         finish();
     }
 
-    private void getJSON(final String urlWebService) {
+    private void getJSON(final String urlWebService, String tipo) {
 
         class GetJSON extends AsyncTask<Void, Void, String> {
 
@@ -165,11 +164,22 @@ public class FingerprintActivity extends AppCompatActivity
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
-                try {
-                    cargarTabla(s);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                if(tipo == "1"){
+                    try {
+                        cargarTabla(s);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
+
+                else if(tipo == "2"){
+                    try {
+                        cargarStatus(s);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
             }
 
             @Override
@@ -247,8 +257,24 @@ public class FingerprintActivity extends AppCompatActivity
 
         }
 
-        String bundleString = bundle.toString();
-        HomeFragment.datos = bundle;
+        //String bundleString = bundle.toString();
         //Toast.makeText(getApplicationContext(), bundleString, Toast.LENGTH_LONG).show();
+    }
+
+    private void cargarStatus(String json) throws JSONException{
+
+        JSONObject jsonGeneral = new JSONObject(json);
+        JSONObject status = jsonGeneral.getJSONArray("status").getJSONObject(0);
+
+        String dht11 = status.get("status_dht11").toString();
+        String mq135 = status.get("status_mq135").toString();
+        String fc28 = status.get("status_fc28").toString();
+        String date = status.get("date_now").toString();
+
+        bundle.putString("status_dht11", dht11);
+        bundle.putString("status_mq135", mq135);
+        bundle.putString("status_fc28", fc28);
+        bundle.putString("date_now", date);
+
     }
 }
