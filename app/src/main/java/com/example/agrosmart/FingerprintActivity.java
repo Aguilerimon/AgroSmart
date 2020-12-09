@@ -307,11 +307,5 @@ public class FingerprintActivity extends AppCompatActivity
 
         }
 
-        String prueba1 = bundle.getString("notif1");
-        String prueba2 = bundle.getString("notif2");
-
-        Toast.makeText(getApplicationContext(), prueba1+prueba2, Toast.LENGTH_SHORT).show();
-
-
     }
 }
