@@ -59,8 +59,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     FrameLayout frameLayout;
     String nombre, correo, phone, password, user_id;
     SearchView searchView;
-    Boolean noti = false;
-    NotificationsFragment notificationsFragment;
 
     private PendingIntent pendingIntent;
     private final static String CHANNEL_ID = "NOTIFICATION";
@@ -115,14 +113,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
 
-        if(noti)
-        {
-
-        }
-        else
-        {
-            showHome();
-        }
+        showHome();
 
 
 
@@ -166,20 +157,11 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         }
     }
 
-
-
     public void notification(String not)
     {
-        setPendingIntent();
         createNotificationChannel();
         createNotification(not);
         notificationsResponse();
-    }
-
-    private void setPendingIntent()
-    {
-        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
-        notificationManagerCompat.cancel(NOTIFICATION_ID);
     }
 
     private void createNotificationChannel()
@@ -214,16 +196,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.nav_host_fragment,homeFragment, homeFragment.getTag());
-        fragmentTransaction.commit();// add the fragment
-        homeStatus = true;
-    }
-
-    private void showNotifications()
-    {
-        notificationsFragment = new NotificationsFragment();
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.nav_host_fragment,homeFragment, notificationsFragment.getTag());
         fragmentTransaction.commit();// add the fragment
         homeStatus = true;
     }
@@ -341,7 +313,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
                         boolean successResponse = jsonResponse.getBoolean("success");
 
-                        if(successResponse == true)
+                        /*if(successResponse == true)
                         {
                             Toast.makeText(MainActivity.this, "Notificacion cargada", Toast.LENGTH_LONG).show();
 
@@ -350,7 +322,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                         {
                             AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
                             alert.setMessage(R.string.register_error).setNegativeButton(R.string.retry, null).create().show();
-                        }
+                        }*/
                     } catch (JSONException e)
                     {
                         e.printStackTrace();

@@ -8,7 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
+
+import static com.example.agrosmart.MainActivity.NOTIFICATION_ID;
 
 import java.util.ArrayList;
 
@@ -24,6 +27,9 @@ public class NotificationsFragment extends Fragment
     {
 
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getContext());
+        notificationManagerCompat.cancel(NOTIFICATION_ID);
 
         lista = root.findViewById(R.id.list_Notifications);
         ArrayList<String> stringArray = new ArrayList<String>();

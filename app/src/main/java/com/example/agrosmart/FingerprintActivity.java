@@ -306,6 +306,5 @@ public class FingerprintActivity extends AppCompatActivity
             bundle.putString(keyDate, fecha);
 
         }
-
     }
 }
