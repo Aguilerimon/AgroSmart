@@ -17,6 +17,8 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -57,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     FrameLayout frameLayout;
     String nombre, correo, phone, password, user_id;
     SearchView searchView;
+    Boolean noti = false;
+    NotificationsFragment notificationsFragment;
 
     private PendingIntent pendingIntent;
     private final static String CHANNEL_ID = "NOTIFICATION";
@@ -111,12 +115,16 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
 
-        homeFragment = new HomeFragment();
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.nav_host_fragment,homeFragment);
-        fragmentTransaction.commit();// add the fragment
-        showHome();
+        if(noti)
+        {
+
+        }
+        else
+        {
+            showHome();
+        }
+
+
 
         String sensors_combination = dht11 + mq135 + fc28;
 
@@ -158,20 +166,20 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         }
     }
 
-    public PendingIntent closeNotification()
-    {
-        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
-        notificationManagerCompat.cancel(NOTIFICATION_ID);
-        return null;
-    }
 
 
     public void notification(String not)
     {
+        setPendingIntent();
         createNotificationChannel();
         createNotification(not);
         notificationsResponse();
+    }
 
+    private void setPendingIntent()
+    {
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+        notificationManagerCompat.cancel(NOTIFICATION_ID);
     }
 
     private void createNotificationChannel()
@@ -196,8 +204,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         builder.setVibrate(new long[]{1000,1000,1000,1000,1000});
         builder.setDefaults(Notification.DEFAULT_SOUND);
 
-        builder.addAction(R.drawable.icon_information, "Entendido", closeNotification());
-
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
         notificationManagerCompat.notify(NOTIFICATION_ID, builder.build());
     }
@@ -208,6 +214,16 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.nav_host_fragment,homeFragment, homeFragment.getTag());
+        fragmentTransaction.commit();// add the fragment
+        homeStatus = true;
+    }
+
+    private void showNotifications()
+    {
+        notificationsFragment = new NotificationsFragment();
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.nav_host_fragment,homeFragment, notificationsFragment.getTag());
         fragmentTransaction.commit();// add the fragment
         homeStatus = true;
     }
