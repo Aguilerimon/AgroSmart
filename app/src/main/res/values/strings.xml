@@ -230,7 +230,7 @@ podrán ser cancelados en cualquier momento.</p>\n\n<p><b>AgroSmart</b> está al
     <string name="s100">Sensor de temperatura y calidad de aire desactivados</string>
     <string name="s101">Sensor de calidad de aire desactivado</string>
     <string name="s110">Sensor de temperatura desactivado</string>
-    <string name="s111">Sensores connectados</string>
+    <string name="s111">Sensores conectados</string>
 
 
 </resources>
