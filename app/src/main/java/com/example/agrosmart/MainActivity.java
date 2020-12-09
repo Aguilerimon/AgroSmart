@@ -17,8 +17,6 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,9 +38,7 @@ import com.example.agrosmart.NavigationDrawer.HomeFragment;
 import com.example.agrosmart.NavigationDrawer.PolicyFragment;
 import com.example.agrosmart.NavigationDrawer.SensorsFragment;
 import com.example.agrosmart.NavigationDrawer.SettingsFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabItem;
 
 import org.json.JSONException;
@@ -162,22 +158,20 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         }
     }
 
-    private void setPendingIntent()
+    public PendingIntent closeNotification()
     {
-        Intent intent = new Intent(this, NotificationsActivity.class);
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(MainActivity.class);
-        stackBuilder.addNextIntent(intent);
-
-        pendingIntent = stackBuilder.getPendingIntent(1, PendingIntent.FLAG_UPDATE_CURRENT);
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+        notificationManagerCompat.cancel(NOTIFICATION_ID);
+        return null;
     }
+
 
     public void notification(String not)
     {
-        setPendingIntent();
         createNotificationChannel();
         createNotification(not);
         notificationsResponse();
+
     }
 
     private void createNotificationChannel()
@@ -202,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         builder.setVibrate(new long[]{1000,1000,1000,1000,1000});
         builder.setDefaults(Notification.DEFAULT_SOUND);
 
-        builder.setContentIntent(pendingIntent);
+        builder.addAction(R.drawable.icon_information, "Entendido", closeNotification());
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
         notificationManagerCompat.notify(NOTIFICATION_ID, builder.build());
@@ -309,8 +303,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                 homeStatus = false;
                 break;
             case R.id.action_notifications:
-                Intent intent = new Intent(this, NotificationsActivity.class);
-                startActivity(intent);
+                loadFragment(new NotificationsFragment());
                 homeStatus = false;
                 break;
             default: return false;

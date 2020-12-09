@@ -14,12 +14,6 @@
         android:theme="@style/Theme.AgroSmart"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".NotificationsActivity"
-            android:label="Notificaciones"
-            android:parentActivityName=".MainActivity"
-            android:configChanges="orientation|screenSize">
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.AgroSmart.NoActionBar" />
