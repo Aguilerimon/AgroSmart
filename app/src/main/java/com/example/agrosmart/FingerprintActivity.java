@@ -46,6 +46,7 @@ public class FingerprintActivity extends AppCompatActivity
         //Obtener JSON de la DB
         getJSON("http://agrosmartamm.000webhostapp.com/agrosmart/getSensor.php", "1");
         getJSON("http://agrosmartamm.000webhostapp.com/agrosmart/getStatus.php", "2");
+        getJSON("http://agrosmartamm.000webhostapp.com/agrosmart/getNotifications.php", "3");
         setContentView(R.layout.activity_fingerprint);
 
         btnSwitchVer = findViewById(R.id.btn_switch_ver);
@@ -180,6 +181,14 @@ public class FingerprintActivity extends AppCompatActivity
                     }
                 }
 
+                else if (tipo == "3"){
+                    try {
+                        cargarNotificaciones(s);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
             }
 
             @Override
@@ -275,6 +284,34 @@ public class FingerprintActivity extends AppCompatActivity
         bundle.putString("status_mq135", mq135);
         bundle.putString("status_fc28", fc28);
         bundle.putString("date_now", date);
+
+    }
+
+    private void cargarNotificaciones(String json) throws JSONException{
+
+        JSONObject jsonGeneral = new JSONObject(json);
+        JSONArray arrayNotif = jsonGeneral.getJSONArray("notif");
+
+        for(int i=0; i<arrayNotif.length(); i++){
+
+            JSONObject notificacion = arrayNotif.getJSONObject(i);
+
+            String keyNotif = "notif" + i;
+            String notif = notificacion.get("notification").toString();
+
+            String keyDate = "dateNotif" + i;
+            String fecha = notificacion.get("date_now").toString();
+
+            bundle.putString(keyNotif,  notif);
+            bundle.putString(keyDate, fecha);
+
+        }
+
+        String prueba1 = bundle.getString("notif1");
+        String prueba2 = bundle.getString("notif2");
+
+        Toast.makeText(getApplicationContext(), prueba1+prueba2, Toast.LENGTH_SHORT).show();
+
 
     }
 }
