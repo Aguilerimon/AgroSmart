@@ -216,5 +216,14 @@
 
     <string name="biometric_success">You can use the fingerprint sensor to login</string>
 
+    <string name="s000">Disabled sensors</string>
+    <string name="s001">Ground humidity and air quality sensors are disabled</string>
+    <string name="s010">Air quality and temperature sensor are disabled</string>
+    <string name="s011">Ground humidity sensor are disabled</string>
+    <string name="s100">Temperature and air quality sensors are disabled</string>
+    <string name="s101">Air quality sensor disabled</string>
+    <string name="s110">Temperature sensor disabled</string>
+    <string name="s111">Sensors connected</string>
+
 
 </resources>

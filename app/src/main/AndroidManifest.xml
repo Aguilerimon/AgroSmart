@@ -3,7 +3,7 @@
     package="com.example.agrosmart">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgroSmart"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".NotificationsActivity"
+            android:label="Notificaciones"
+            android:parentActivityName=".MainActivity"
+            android:configChanges="orientation|screenSize">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize"

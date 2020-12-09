@@ -223,6 +223,14 @@ podrán ser cancelados en cualquier momento.</p>\n\n<p><b>AgroSmart</b> está al
 
     <string name="biometric_success">Puede usar huella digital para iniciar sesión</string>
 
+    <string name="s000">Sensores desactivados</string>
+    <string name="s001">Sensores de humedad en tierra y calidad de aire desactivados</string>
+    <string name="s010">Sensor de calidad de aire desactivado</string>
+    <string name="s011">Sensor de humedad en tierra desactivado</string>
+    <string name="s100">Sensor de temperatura y calidad de aire desactivados</string>
+    <string name="s101">Sensor de calidad de aire desactivado</string>
+    <string name="s110">Sensor de temperatura desactivado</string>
+    <string name="s111">Sensores connectados</string>
 
 
 </resources>
